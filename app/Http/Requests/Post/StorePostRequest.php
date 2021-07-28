@@ -29,6 +29,7 @@ class StorePostRequest extends FormRequest {
             'description' => 'required|max:255',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
             'id_category' => 'required',
+            'sort' => 'nullable'
         ];
         
     }

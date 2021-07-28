@@ -38,8 +38,8 @@
                             <li>
                                 <form class="navbar-form" action="" method="GET">
                                     <div class="form-group">
-                                        <input class="form-control" name="search" id="search-post" placeholder="Search" type="text">
-                                        <button type="button" style="padding:4px;" data-url="{{ route('post.select') }}" id="searchPost" class="btn btn-primary">Tìm kiếm</button>
+                                        <input class="form-control" data-url="{{ route('post.select') }}" name="search" id="search-post" placeholder="Search" type="text">
+                                        
                                     </div>
                                 </form>
                             </li>
@@ -72,7 +72,8 @@
                                         <th>description</th>
                                         <th>Content</th>
                                         <th>Image</th>
-                                        <th>ACtion</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody id="list-post">

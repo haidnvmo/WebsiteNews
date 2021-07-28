@@ -23,6 +23,7 @@ class PostController extends Controller
     public function create(StorePostRequest $request)
     {
         $data = $request->validated();
+        // $data['sort'] = $request['sort'];
         // Handle file Upload
         if ($request->hasFile('image')) {
             $filenameWithExt = $request->file('image')->getClientOriginalName();
@@ -58,6 +59,9 @@ class PostController extends Controller
     {
         $category = Category::get();
         $editPost = Post::where('id', '=', $request->id)->first();
+        if(!$editPost) {
+            abort(404);
+        }
         return view('backend.post.update', compact('editPost', 'category'));
     }
 
