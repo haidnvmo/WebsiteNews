@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Post extends Model
 {
@@ -27,6 +28,12 @@ class Post extends Model
     public static function getNewsOfCategory($idCate) {
        return self::select('posts.*', 'category.name')->join('category', function($join) {
             $join->on('posts.id_category', '=', 'category.id');
-        })->where('category.id', $idCate);
-    }    
+        })->where('category.id', $idCate)
+           ;
+    }
+    // public static function getPost($notgetcate) {
+    //     return self::select('posts.*', 'category.name')->join('category', function($join) {
+    //          $join->on('posts.id_category', '=', 'category.id');
+    //      })->whereNotIn('id', $notgetcate);
+    //  }    
 }

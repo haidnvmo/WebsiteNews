@@ -62,15 +62,15 @@
             <div class="news-list_right">
                 <div class="list-item">
                     @if($getPostHotNews)
-                    <h3 class="list-title"><a href="" title="">{{ $getPostHotNews->categories->name }}</a></h3>
+                    <h3 class="list-title"><a href="{{ route('home.detail',$getPostHotNews->categories->slug) }}" title="">{{ $getPostHotNews->categories->name }}</a></h3>
                     <div class="list-content">
                         <div class="list-content_left">
                             <div class="item">
                                 <div class="item-img">
-                                    <a href="" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$getPostHotNews->image) }}" alt=""></a>
+                                    <a href="{{ route('home.detail',$getPostHotNews->categories->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$getPostHotNews->image) }}" alt=""></a>
                                 </div>
                                 <div class="item-body">
-                                    <h4 class="item-title"><a href="" title="">{{ $getPostHotNews->description  }}</a></h4>
+                                    <h4 class="item-title"><a href="{{ route('home.detail',$getPostHotNews->categories->slug) }}" title="">{{ $getPostHotNews->description  }}</a></h4>
 
                                 </div>
                             </div>
@@ -79,62 +79,60 @@
                         <div class="list-content_right">
                             <ul>
                                 @foreach ($getPostHotNews1 as $value)
-                                <li><a href="" title="">{{ $value->title }}</a></li>
+                                <li><a href="{{ route('home.detail',$value->categories->slug) }}" title="">{{ $value->title }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
                         @endif
                     </div>
                 </div>
-
                 <div class="list-item">
                     @if($getPostSport)
-                    <h3 class="list-title"><a href="" title="">{{ $getPostSport->categories->name }}</a></h3>
+                    <h3 class="list-title"><a href="{{ route('home.detail',$getPostSport->slug) }}" title="">{{ $getPostSport->categories->name }}</a></h3>
                     <div class="list-content">
                         <div class="list-content_left">
                             <div class="item">
                                 <div class="item-img">
-                                    <a href="" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$getPostSport->image) }}" alt=""></a>
+                                    <a href="{{ route('home.detail',$getPostSport->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$getPostSport->image) }}" alt=""></a>
                                 </div>
                                 <div class="item-body">
-                                    <h4 class="item-title"><a href="" title="">{{ $getPostSport->description  }}</a></h4>
+                                    <h4 class="item-title"><a href="{{ route('home.detail',$getPostSport->slug) }}" title="">{{ $getPostSport->description  }}</a></h4>
 
                                 </div>
                             </div>
                         </div>
-
                         <div class="list-content_right">
-                            <ul>
+
+                        <ul>
                                 @foreach ($getPostSport1 as $value)
-                                <li><a href="" title="">{{ $value->title }}</a></li>
+                                <li><a href="{{ route('home.detail',$value->slug) }}" title="">{{ $value->title }}</a></li>
                                 @endforeach
                             </ul>
+                          
                         </div>
                         @endif
                     </div>
                 </div>
                 <div class="list-item">
                     @if($getPostCultural)
-                    <h3 class="list-title"><a href="" title="">{{ $getPostCultural->categories->name }}</a></h3>
+                    <h3 class="list-title"><a href="{{ route('home.detail',$getPostCultural->slug) }}" title="">{{ $getPostCultural->categories->name }}</a></h3>
                     <div class="list-content">
                         <div class="list-content_left">
                             <div class="item">
                                 <div class="item-img">
-                                    <a href="" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$getPostCultural->image) }}" alt=""></a>
+                                    <a href="{{ route('home.detail',$getPostCultural->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$getPostCultural->image) }}" alt=""></a>
                                 </div>
                                 <div class="item-body">
-                                    <h4 class="item-title"><a href="" title="">{{ $getPostCultural->description  }}</a></h4>
+                                    <h4 class="item-title"><a href="{{ route('home.detail',$getPostCultural->slug) }}" title="">{{ $getPostCultural->description  }}</a></h4>
 
                                 </div>
                             </div>
                         </div>
-
                         <div class="list-content_right">
                             <ul>
-                                
                                 @foreach ($getPostCultural1 as $value)
                                 <span style="font-size:10px;">{{ $value->created_at }}</span>
-                                <li><a href="" title="">{{ $value->title }}</a></li>
+                                <li><a href="{{ route('home.detail',$value->categories->slug) }}" title="">{{ $value->title }}</a></li>
 
                                 @endforeach
                             </ul>
@@ -146,8 +144,6 @@
         </div>
     </div>
 </main>
-
-
 
 <div class="action-fixed">
     <ul>

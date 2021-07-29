@@ -72,6 +72,7 @@
                                         <th>description</th>
                                         <th>Content</th>
                                         <th>Image</th>
+                                        <th>Slug</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>

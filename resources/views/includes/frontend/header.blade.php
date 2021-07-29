@@ -1,7 +1,7 @@
 <header id="header">
             <nav class="ss-navbar" style="margin-bottom: 10px;">
                 <div class="ss-navbar-logo">
-                <a href="/"><svg x="0px" y="0px" viewBox="0 0 1500 1500" xml:space="preserve" width="165" style="height: 124px;
+                <a href="{{ route('home.index') }}"><svg x="0px" y="0px" viewBox="0 0 1500 1500" xml:space="preserve" width="165" style="height: 124px;
     margin: -35;
     padding-right: 40px;
 "><style type="text/css">

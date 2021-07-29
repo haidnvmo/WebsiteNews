@@ -7,33 +7,12 @@
                     <div class="news-detail">
                         <div class="news-detail_left">
                             <h1 class="title">Tin tức</h1>
-                            <h2 class="title-detail">Bố cục văn phòng ảnh hưởng đến nhân viên của bạn như thế nào?</h2>
+                            <h2 class="title-detail"></h2>
                             <div class="post-content">
                                 <div style="text-align: center;margin-bottom: 20px;"><img style="width: 100%;" src="images/project/p10.jpg" alt=""></div>
-                                Mỗi kiểu văn phòng lại có một bố cục sắp xếp khác nhau. Mỗi bố cục văn phòng làm việc sẽ có những tác động nhất định đối với nhân viên. Vậy các quý đọc giả có biết bố cục văn phòng làm việc ảnh hưởng như thế nào tới nhân viên?
-                                <br> <br>
-                                Nếu mọi người chưa biết câu trả lời, hãy cùng AFA Design phân tích vấn đề một khách quan để tìm ra câu trả lời nhé!
-                                <br> <br>
-                                <div style="text-align: center;"><img style="width: 100%;" src="images/project/p11.jpg" alt=""></div>
-                                <h2 style="margin: 20px 0; font-size: 20px; font-weight: bold;">Bố cục văn phòng làm việc có ảnh hưởng đến năng suất làm việc của nhân viên?</h2>
-                                Trước tiên, chúng ta cần phải biết được bố cục văn phòng có ảnh hưởng đến năng suất làm việc của nhân viên hay không. Câu trả lời là “có”!
-                                <br> <br>
-                                Theo số liệu mà các nhà khoa học đã nghiên cứu rằng hầu hết nhân viên văn phòng dành tới ít nhất 60% thời gian trong ngày chỉ để ở trong nhà. Điều này tác động không nhỏ tới sức khỏe thể chất, sức mạnh tinh thần, cách hành xử, khả năng giao tiếp của nhân viên. Để giải quyết mọi vấn đề tồn động mà nhân viên gặp phải thì chúng ta cần phải thiết kế văn phòng có bố cục rõ ràng, có màu sắc tươi mới, có đầy đủ ánh sáng, có các trang thiết bị cần thiết, giảm tiếng ồn nhằm tạo ra một bầu không khí tốt, thân thiện.
-                                <br> <br>
-                                Khi những vấn đề của nhân viên đã được giải quyết rồi thì họ sẽ làm việc năng suất hơn, đạt được hiệu quả cao hơn. Từ đó giúp cho công ty ngày càng phát triển, doanh nghiệp ngày càng tăng trưởng. Rõ ràng, bố cục văn phòng làm việc ảnh hưởng rất nhiều tới nhân viên.
-                                <h2 style="margin: 20px 0; font-size: 20px; font-weight: bold;">Những điều cần lưu ý khi sắp xếp bố cục văn phòng làm việc</h2>
-                                Để sắp xếp bố cục văn phòng giúp tạo nên môi trường làm việc năng động và thân thiện, các bạn cần chú ý những điều sau:
-                                <br> <br>
-                                <ul style="padding-left: 20px">
-                                    <li style="list-style: outside;">Sắp xếp các đồ phong thủy trong văn phòng là việc: Những đồ phong thủy xuất hiện trong văn phòng sẽ đem lại lợi ích về mặt tâm linh, giúp công việc làm ăn được suôn sẻ, gặp nhiều may mắn, cũng như xua đuổi hạn khí, khí xấu. Một vài đồ phong thủy rất phù hợp nếu được bài trí trong văn phòng của bạn như thuyền mạ vàng, đĩa ngọc thạch, 3 ông Phúc – Lộc – Thọ,…
-                                    </li>
-                                    <br>
-                                    <li style="list-style: outside;">Bố trí những không gian xanh trong văn phòng làm việc: Không gian xanh đóng vai trò lọc khí, cung cấp oxy cho nhân viên, cung cấp độ ẩm cho cả văn phòng và hỗ trợ cả về đường tài lộc luôn được hanh thông. Các bạn có thể mua những loại cây như kim tiền, đại đế vương, kim ngân, ngọc ngân, vạn lộc,… hay bể cá, thác nước mini để tạo không gian xanh trong văn phòng của mình.
-                                    </li>
-                                    <br>
-                                    <li style="list-style: outside;">Bố trí những không gian xanh trong văn phòng làm việc: Không gian xanh đóng vai trò lọc khí, cung cấp oxy cho nhân viên, cung cấp độ ẩm cho cả văn phòng và hỗ trợ cả về đường tài lộc luôn được hanh thông. Các bạn có thể mua những loại cây như kim tiền, đại đế vương, kim ngân, ngọc ngân, vạn lộc,… hay bể cá, thác nước mini để tạo không gian xanh trong văn phòng của mình.
-                                    </li>
-                                </ul>
+                                {{ $getDetail->title }}
+                                <div style="text-align: center;"><img style="width: 100%;" src="" alt=""></div>
+                                
                             </div>
                             <div class="post-ghim">
                                 <p>Cảm ơn các bạn đã theo dõi bài viết “bố cục văn phòng làm việc ảnh hưởng như thế nào tới nhân viên?” của AFA Design!</p>

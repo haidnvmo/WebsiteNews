@@ -30,6 +30,7 @@ class HomeController extends Controller
         if($getPostCultural) {
             $getPostCultural1 = Post::getNewsOfCategory(Post::POST_CULTURAL)->orderBy('created_at', 'DESC')->take(3)->get();
         }
+        
         // dd($a);
         // $getPostSport = Post::with(['categories' => function ($query) {
         //     $query->where('id', '=', 5);
@@ -46,6 +47,7 @@ class HomeController extends Controller
         return view('frontend.home.index', compact(['getPost','getPostData','getPostHighLights', 'getPostNews','getPostHotNews','getPostHotNews1','getPostSport','getPostSport1','getPostCultural','getPostCultural1']));
     }
     public function detail(Request $request) {
-        return view('frontend.detail.index');
+        $getDetail = Post::where('slug', '=', $request->slug)->first();
+        return view('frontend.detail.index', compact('getDetail'));
     }
 }
