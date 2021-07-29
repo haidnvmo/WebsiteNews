@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 
 
 include __DIR__.'/backend/web.php';
+include __DIR__.'/frontend/web.php';

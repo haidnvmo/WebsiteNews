@@ -13,7 +13,7 @@
                {{ csrf_field() }}
                <div class="form-group">
                   <label for="exampleInputEmail1" class="text-uppercase">Title <sup>*</sup></label>
-                  <input type="text" name='title' value="{{ old('title') }}" class="form-control" placeholder="">
+                  <input type="text" id="name_post" name='title' value="{{ old('title') }}" class="form-control" placeholder="">
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1" class="text-uppercase">Chuyên mục <sup>*</sup></label>
@@ -25,8 +25,17 @@
                   </select>
                </div>
                <div class="form-group">
+                  <label for="exampleInputPassword1" class="text-uppercase">sort<sup>*</sup></label>
+                  <select name="sort" id="">
+                     <option value="">Sắp xếp Tin tức</option>
+                     <option value="1">Nổi bật</option>
+                     <option value="2">Mới nhất</option>
+                  </select>
+               </div>
+
+               <div class="form-group">
                   <label for="exampleInputPassword1" class="text-uppercase">Slug <sup>*</sup></label>
-                  <input type="text" name='slug' value='' class="form-control" placeholder="">
+                  <input type="text" id="slug_post" name='slug' value='' class="form-control" placeholder="">
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1" class="text-uppercase">Content <sup>*</sup></label>
@@ -39,30 +48,29 @@
                   <label for="exampleInputPassword1" class="text-uppercase">Image </label>
                   <input type="file" name='image' value='' class="form-control" placeholder="">
                </div>
-               {{-- <div class="form-group">
-         <label for="exampleInputPassword1" class="text-uppercase">sort <sup>*</sup></label>
-         <select name="sort" id="">
-            <option value="">Sắp xếp Tin tức</option>
-            <option value="1">Nổi bật</option>
-            <option value="2">Mới nhất</option>
-            @foreach ($categories as $value)
-               <option value="{{ $value->id }}">{{ $value->name }}</option>
-               @endforeach
-               </select>
-         </div> --}}
-         <div class="form-group">
-            <label for="exampleInputPassword1" class="text-uppercase">Descripton <sup>*</sup></label>
-            <input type="text" name='description' value='{{ old('description') }}' class="form-control" placeholder="">
-         </div>
+               <div class="form-group">
+                  <label for="exampleInputPassword1" class="text-uppercase">Descripton <sup>*</sup></label>
+                  <input type="text" name='description' value='{{ old('description') }}' class="form-control" placeholder="">
+               </div>
 
-         <div class="form-check col-md-offset-4">
-            <!-- <label class="form-check-label">
+               <div class="form-check col-md-offset-4">
+                  <!-- <label class="form-check-label">
          <input type="checkbox" class="form-check-input">
          <small>Remember Me</small>
          </label> -->
-            <button type="submit" class="btn btn-login float-right">Thêm</button>
-         </div>
-         </form>
+                  <button type="submit" class="btn btn-login float-right">Thêm</button>
+               </div>
+            </form>
 </section>
 
 @endsection
+<script src="{{ asset('backend/js/jquery-1.8.3.min.js') }}"></script>
+<script>
+   
+$("#name_post").keyup(function(){
+        var Text = $(this).val();
+        Text = Text.toLowerCase();
+        Text = Text.replace(/[^a-zA-Z0-9]+/g,'-');
+        $("#slug_post").val(Text);
+});
+</script>

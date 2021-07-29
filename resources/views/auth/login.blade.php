@@ -31,7 +31,7 @@
                   <div class="app-form">
                      <span id="error" style="color:red;"></span>
                      <div class="app-form-group">
-                        <input type="text" class="app-form-control" name="email" placeholder="Email" value="">
+                        <input type="text" class="app-form-control" name="email" placeholder="Email" >
                         <span style="color:white;"></span>
                      </div>
                      <div class="app-form-group">
