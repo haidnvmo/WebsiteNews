@@ -54,7 +54,7 @@
 
 <div class="action-fixed">
     <ul>
-        <li><a href="" title=""><img src="images/icon/s5.png" alt=""></a></li>
+        <li><a href="" title=""><img src="https://zalo.me/0915075858" alt=""></a></li>
         <li><a href="" title=""><img src="images/icon/s4.png" alt=""></a></li>
         <li><a href="" title=""><img src="images/icon/s3.png" alt=""></a></li>
         <li><a href="" title=""><img src="images/icon/s2.png" alt=""></a></li>

@@ -4032,6 +4032,11 @@ section.section-contact .contact-content .row-input .box-input {
     padding: 0 15px;
 }
 
+section.section-contact .contact-content .row-input .box-input {
+    width: calc(100%/3);
+    padding: 0 15px;
+}
+
 section.section-contact .contact-content .box-input {
     position: relative;
     margin-bottom: 30px;
@@ -6095,6 +6100,11 @@ section.section.active {
     margin: 0 -15px;
 }
 
+#contact-wrapper .box-contact .contact-form .row-input .error {
+    color: #E70404;
+    padding-top: 5px;
+}
+
 #contact-wrapper .box-contact .contact-form .row-input .box-input {
     width: 50%;
     padding: 0 15px;
@@ -6183,3 +6193,5 @@ section.section.active {
 
 
 /*# sourceMappingURL=main.css.map */
+
+.lo
