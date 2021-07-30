@@ -16,6 +16,6 @@ return [
     'succssefull'             => 'Đăng nhập thành công',
     'error_password'             => 'Mật khẩu hoặc tài khoản không đúng',
     'succssefullCategory'             => 'Đăng ký thành công',
-    
+    'sendmail'             => 'Bạn đã gửi mẫu thành công',
 
 ];

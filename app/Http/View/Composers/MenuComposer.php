@@ -4,6 +4,7 @@ namespace App\Http\View\Composers;
 use Illuminate\View\View;
 use App\Models\Category;
 use App\Models\SubCategory;
+use App\Models\Contact;
 
 class MenuComposer {
     /**

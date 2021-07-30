@@ -45,8 +45,10 @@
                                 @endforeach
                             </ul>
                         @endif
+                        
                     </li>
                 @endforeach
+                <li><a href="{{ route('contact.index') }}">Liên Hệ</a></li>
             </ul>
         </div>
         <div class="ss-navbar-toggle">
