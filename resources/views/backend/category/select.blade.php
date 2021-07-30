@@ -21,6 +21,7 @@
                         <ul class="sub">
                             <li><a class="active" href="{{ route('category.select') }}">Category</a></li>
                             <li><a class="active" href="{{ route('post.select') }}">Post</a></li>
+                            <li><a class="active" href="{{ route('subcategory.select') }}">Sub Category</a></li>
                         </ul>
                     </li>
                 </ul>

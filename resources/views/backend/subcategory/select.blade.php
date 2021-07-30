@@ -39,50 +39,40 @@
                             <li>
                                 <form class="navbar-form" action="" method="GET">
                                     <div class="form-group">
-                                        <input class="form-control" data-url="{{ route('post.select') }}" name="search" id="search-post" placeholder="Search" type="text">
-                                        
+                                        <input style="margin: -10px;margin-bottom: 10px;" class="form-control" name="search" data-url="{{ route('subcategory.select') }}"  id="search-subcategory" placeholder="Search" type="text">
+                                        <!-- <button type="button" style="padding:4px;" id="searchPost" class="btn btn-primary">Tìm kiếm</button> -->
                                     </div>
                                 </form>
                             </li>
                         </ul>
-                        <!--  search form end -->
+                        <ol class="breadcrumb">
+                            <li><i class="fa fa-table"></i>Table</li>
+                        </ol>
                     </div>
-                    <br>
-                    <ol class="breadcrumb">
-                        <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-                        <li><i class="fa fa-table"></i>Table</li>
-                        <li><i class="fa fa-th-list"></i>Basic Table</li>
-                        <div class="nav search-row" id="top_menu">
-                            <!--  search form start -->
-
-                    </ol>
-                </div>
                 </div>
                 <!-- page start-->
                 <div class="row">
                     <div class="col-sm-12">
                         <section class="panel">
                             <header class="panel-heading">
-                                <span style=""><a href="{{ route('post.index') }}">Add Posts</a></span>
+                                <span style=""><a href="{{ route('subcategory.index') }}">Add Category</a></span>
                             </header>
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Title</th>
-                                        <th>Category</th>
-                                        <th>description</th>
-                                        <th>Image</th>
-                                        <th>Slug</th>
-                                        <th>Edit</th>
+                                        <th>Name</th>
+                                        <th>slug</th>
+                                        <th>Category_id</th>
                                         <th>Delete</th>
                                     </tr>
                                 </thead>
-                                <tbody id="list-post">
-                                    @include('backend.post.ajax.data')
+                                <tbody id="list-subcategory">
+                                    @include('backend.subcategory.ajax.data')
                                 </tbody>
                             </table>
                         </section>
                     </div>
+
                 </div>
                 <!-- page end-->
             </section>
@@ -103,28 +93,28 @@
     <script src="{{ asset('backend/js/jquery-1.8.3.min.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#search-post').keyup(function() {
-                var title = $('#search-post').val();
+            $("#search-subcategory").keyup(function() {
+                var name = $('#search-subcategory').val();
                 var url = $(this).attr('data-url');
+                console.log(name);
                 $.ajax({
                         url: url,
                         type: "GET",
-                        data: { 
-                            title
-                        }
+                        data: {
+                            name
+                        },
                     })
                     .done(function(data) {
                         if (data.html == " ") {
                             $('.ajax-load').html("No more records found");
                             return;
                         }
-                        $('#list-post tr').remove();
-                        $("#list-post").append(data.html);
+                        $('#list-subcategory tr').remove();
+                        $("#list-subcategory").append(data.html);
                     })
                     .fail(function(jqXHR, ajaxOptions, thrownError) {
                         alert('server not responding...');
                     });
             })
-
-        })
+        });
     </script>

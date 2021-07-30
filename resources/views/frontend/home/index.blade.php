@@ -6,13 +6,15 @@
         <div class="news-head">
             <div class="news-head_left">
                 <div class="item">
+                    @if($getPost)
                     <div class="item-img">
-                        <a href="08-tin-tuc-chi-tiet.html" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$getPost->image) }}" alt=""></a>
+                        <a href="{{ route('home.detail', $getPost->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$getPost->image) }}" alt=""></a>
                     </div>
                     <div class="item-body">
-                        <h3 class="item-title"><a href="08-tin-tuc-chi-tiet.html" title="">{{ $getPost->title }}</a></h3>
+                        <h3 class="item-title"><a href="{{ route('home.detail', $getPost->slug) }}" title="">{{ $getPost->title }}</a></h3>
                         <h4 class="desc">{{ $getPost->description }}</h4>
                     </div>
+                    @endif
                 </div>
             </div>
             <div class="news-head_right">
@@ -21,7 +23,7 @@
                     <div class="box-content">
                         @foreach ($getPostHighLights as $value)
                         <ul>
-                            <li><a href="08-tin-tuc-chi-tiet.html" title="">{{ $value->title }}</a></li>
+                            <li><a href="{{ route('home.detail', $value->slug) }}" title="">{{ $value->title }}</a></li>
 
                         </ul>
                         @endforeach
@@ -33,7 +35,7 @@
                     <div class="box-content">
                         @foreach ($getPostNews as $value)
                         <ul>
-                            <li><a href="08-tin-tuc-chi-tiet.html" title="">{{ $value->title }}</a></li>
+                            <li><a href="{{ route('home.detail', $value->slug) }}" title="">{{ $value->title }}</a></li>
                         </ul>
                         @endforeach
                     </div>
@@ -45,14 +47,16 @@
                 <div class="box-item">
                     <div class="item">
                         @foreach ($getPostData as $value)
-                        <div class="item-img">
-                            <a href="08-tin-tuc-chi-tiet.html" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$value->image) }}" alt=""></a>
+                        <span style="color:yellow;">{{ $value->categories->name }}</span><br>
+                        <div class="item-img"><br>
+                            <a href="{{ route('home.detail', $value->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$value->image) }}" alt=""></a> <br>
                         </div>
+                        <br>
                         <div class="item-body">
-                            <h3 class="item-title"><a href="08-tin-tuc-chi-tiet.html" title="">{{ $value->title }}</a></h3>
+                            <h3 class="item-title"><a href="{{ route('home.detail', $value->slug) }}" title="">{{ $value->title  }}</a></h3>
                             <h4 class="desc">
                                 {{ $value->description }}
-                            </h4>
+                            </h4><br><br>
                         </div>
                         @endforeach
 
@@ -62,15 +66,15 @@
             <div class="news-list_right">
                 <div class="list-item">
                     @if($getPostHotNews)
-                    <h3 class="list-title"><a href="{{ route('home.detail',$getPostHotNews->categories->slug) }}" title="">{{ $getPostHotNews->categories->name }}</a></h3>
+                    <h3 class="list-title"><a href="{{ route('home.detail',$getPostHotNews->slug) }}" title="">{{ $getPostHotNews->categories->name }}</a></h3>
                     <div class="list-content">
                         <div class="list-content_left">
                             <div class="item">
                                 <div class="item-img">
-                                    <a href="{{ route('home.detail',$getPostHotNews->categories->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$getPostHotNews->image) }}" alt=""></a>
+                                    <a href="{{ route('home.detail',$getPostHotNews->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$getPostHotNews->image) }}" alt=""></a>
                                 </div>
                                 <div class="item-body">
-                                    <h4 class="item-title"><a href="{{ route('home.detail',$getPostHotNews->categories->slug) }}" title="">{{ $getPostHotNews->description  }}</a></h4>
+                                    <h4 class="item-title"><a href="{{ route('home.detail',$getPostHotNews->slug) }}" title="">{{ $getPostHotNews->title  }}</a></h4>
 
                                 </div>
                             </div>
@@ -79,7 +83,7 @@
                         <div class="list-content_right">
                             <ul>
                                 @foreach ($getPostHotNews1 as $value)
-                                <li><a href="{{ route('home.detail',$value->categories->slug) }}" title="">{{ $value->title }}</a></li>
+                                <li><a href="{{ route('home.detail',$value->slug) }}" title="">{{ $value->title }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -96,19 +100,19 @@
                                     <a href="{{ route('home.detail',$getPostSport->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$getPostSport->image) }}" alt=""></a>
                                 </div>
                                 <div class="item-body">
-                                    <h4 class="item-title"><a href="{{ route('home.detail',$getPostSport->slug) }}" title="">{{ $getPostSport->description  }}</a></h4>
+                                    <h4 class="item-title"><a href="{{ route('home.detail',$getPostSport->slug) }}" title="">{{ $getPostSport->title  }}</a></h4>
 
                                 </div>
                             </div>
                         </div>
                         <div class="list-content_right">
 
-                        <ul>
+                            <ul>
                                 @foreach ($getPostSport1 as $value)
                                 <li><a href="{{ route('home.detail',$value->slug) }}" title="">{{ $value->title }}</a></li>
                                 @endforeach
                             </ul>
-                          
+
                         </div>
                         @endif
                     </div>
@@ -123,7 +127,7 @@
                                     <a href="{{ route('home.detail',$getPostCultural->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$getPostCultural->image) }}" alt=""></a>
                                 </div>
                                 <div class="item-body">
-                                    <h4 class="item-title"><a href="{{ route('home.detail',$getPostCultural->slug) }}" title="">{{ $getPostCultural->description  }}</a></h4>
+                                    <h4 class="item-title"><a href="{{ route('home.detail',$getPostCultural->slug) }}" title="">{{ $getPostCultural->title  }}</a></h4>
 
                                 </div>
                             </div>
@@ -132,7 +136,7 @@
                             <ul>
                                 @foreach ($getPostCultural1 as $value)
                                 <span style="font-size:10px;">{{ $value->created_at }}</span>
-                                <li><a href="{{ route('home.detail',$value->categories->slug) }}" title="">{{ $value->title }}</a></li>
+                                <li><a href="{{ route('home.detail',$value->slug) }}" title="">{{ $value->title }}</a></li>
 
                                 @endforeach
                             </ul>

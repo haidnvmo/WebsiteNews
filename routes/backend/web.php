@@ -22,6 +22,15 @@ Route::group(['middleware' => 'admin'], function () {
         Route::patch('/update', 'App\Http\Controllers\Backend\Post\PostController@update')->name('update');
         Route::get('/delete{id}', 'App\Http\Controllers\Backend\Post\PostController@delete')->name('delete');
     });
+    Route::prefix('subcategory')->name('subcategory.')->group(function () {
+        Route::get('/', 'App\Http\Controllers\Backend\SubCategory\SubCategoryController@index')->name('index');
+        Route::get('/search', 'App\Http\Controllers\Backend\SubCategory\SubCategoryController@search')->name('search');
+        Route::post('/create', 'App\Http\Controllers\Backend\SubCategory\SubCategoryController@create')->name('create');
+        Route::get('/table', 'App\Http\Controllers\Backend\SubCategory\SubCategoryController@select')->name('select');
+        Route::get('/edit/{id}', 'App\Http\Controllers\Backend\SubCategory\SubCategoryController@edit')->name('edit');
+        Route::patch('/update', 'App\Http\Controllers\Backend\SubCategory\SubCategoryController@update')->name('update');
+        Route::get('/delete{id}', 'App\Http\Controllers\Backend\SubCategory\SubCategoryController@delete')->name('delete');
+    });
     Route::prefix('home')->name('home.')->group(function () {
         Route::get('/', 'App\Http\Controllers\Backend\Home\HomeController@home')->name('index');
     });
