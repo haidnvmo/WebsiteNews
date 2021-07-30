@@ -3,6 +3,7 @@ namespace App\Http\View\Composers;
 
 use Illuminate\View\View;
 use App\Models\Category;
+use App\Models\SubCategory;
 
 class MenuComposer {
     /**
@@ -13,10 +14,7 @@ class MenuComposer {
      */
     public function compose(View $view)
     {
-
-        $categories = Category::get();
-        // $contact = Category::first();
-
+        $categories = Category::with('subcategories')->get();
         $view->with(compact(
             'categories'
         ));

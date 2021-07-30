@@ -13,7 +13,7 @@
                {{ csrf_field() }}
                <div class="form-group">
                   <label for="exampleInputEmail1" class="text-uppercase">Title <sup>*</sup></label>
-                  <input type="text" id="name_post" name='title' value="{{ old('title') }}" class="form-control" placeholder="">
+                  <input type="text" onload="convertToSlug(this.value)" onkeyup="convertToSlug(this.value)" id="title" name='title' value="{{ old('title') }}" class="form-control" placeholder="">
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1" class="text-uppercase">Chuyên mục <sup>*</sup></label>
@@ -35,7 +35,7 @@
 
                <div class="form-group">
                   <label for="exampleInputPassword1" class="text-uppercase">Slug <sup>*</sup></label>
-                  <input type="text" id="slug_post" name='slug' value='' class="form-control" placeholder="">
+                  <input type="text" id="slug-text" name='slug' class="form-control" placeholder="">
                </div>
                <div class="form-group">
                   <label for="exampleInputPassword1" class="text-uppercase">Content <sup>*</sup></label>
@@ -58,19 +58,31 @@
          <input type="checkbox" class="form-check-input">
          <small>Remember Me</small>
          </label> -->
-                  <button type="submit" class="btn btn-login float-right">Thêm</button>
+                  <button type="submit" id="taget-slug" class="btn btn-login float-right">Thêm</button>
                </div>
             </form>
 </section>
 
 @endsection
+
 <script src="{{ asset('backend/js/jquery-1.8.3.min.js') }}"></script>
+
 <script>
+/* Encode string to slug */
+function convertToSlug( str ) {
+	
+   //replace all special characters | symbols with a space
+ 
+    
+   // trim spaces at start and end of string
    
-$("#name_post").keyup(function(){
-        var Text = $(this).val();
-        Text = Text.toLowerCase();
-        Text = Text.replace(/[^a-zA-Z0-9]+/g,'-');
-        $("#slug_post").val(Text);
-});
+        
+        
+   // replace space with dash/hyphen
+   str = str.toLowerCase();
+   str = str.replace(/ /g, '-').replace(/[^\w-]+/g, '');
+                
+   $("#slug-text").val(str);       
+   //return str;
+ }
 </script>

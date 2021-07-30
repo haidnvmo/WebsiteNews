@@ -46,6 +46,7 @@
   <link href="{{ asset('backend/css/style.css') }}" rel="stylesheet">
   <link href="{{ asset('backend/css/style-responsive.css') }}" rel="stylesheet" />
   
+ 
   <!-- =======================================================
     Theme Name: NiceAdmin
     Theme URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
@@ -101,6 +102,10 @@
     <script src="{{ asset('backend/js/charts.js') }}"></script>
     <script src="{{ asset('backend/js/jquery.slimscroll.min.js') }}"></script>
     <script src="{{ asset('backend/js/search.js') }}"></script>
+ 
+
+    
+    
     <script>
       //knob
       $(function() {

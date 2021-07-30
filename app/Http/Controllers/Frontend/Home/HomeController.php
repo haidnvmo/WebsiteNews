@@ -13,41 +13,50 @@ class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $getPost = Post::orderBy('created_at', 'DESC')->first();
-        $getPostData = Post::orderBy('created_at', 'DESC')->paginate(6);
-        $getPostHighLights = Post::where('sort','=', Post::POST_HIGHLIGHTS)->take(3)->get();
-        $getPostNews = Post::where('sort','=', Post::POST_NEWS)->take(3)->get();
-        
-        $getPostHotNews = Post::getNewsOfCategory(Post::POST_HOTNEWS)->first();
-        if($getPostHotNews) {
-           $getPostHotNews1 = Post::getNewsOfCategory(Post::POST_HOTNEWS)->orderBy('created_at', 'DESC')->take(3)->get();
-        }
-        $getPostSport = Post::getNewsOfCategory(Post::POST_SPORT)->first();
-        if($getPostSport) {
-            $getPostSport1 = Post::getNewsOfCategory(Post::POST_SPORT)->orderBy('created_at', 'DESC')->take(3)->get();
-        }
-        $getPostCultural = Post::getNewsOfCategory(Post::POST_CULTURAL)->first();
-        if($getPostCultural) {
-            $getPostCultural1 = Post::getNewsOfCategory(Post::POST_CULTURAL)->orderBy('created_at', 'DESC')->take(3)->get();
-        }
-        
-        // dd($a);
-        // $getPostSport = Post::with(['categories' => function ($query) {
-        //     $query->where('id', '=', 5);
-        // }])->first();
-        // if($getPostSport){
-        //     $getPostSport1 = Post::with(['categories' => function ($query) {
-        //         $query->where('id', 5);}])->whereNotIn('id', [$getPostSport->id])->orderBy('created_at', 'DESC')->take('3')->get();
-        // }
-        // $getPostHotNews = Post::with('categories')->where('id_category', '=', Post::POST_HOTNEWS)->first();
-        // if($getPostHotNews){
 
-        // }
+        $getPost = Post::orderBy('created_at', 'DESC')->take(1)->first();
+
+        $getPostData = Post::with('categories')->whereNotIn('id', [$getPost->id])->orderBy('created_at', 'DESC')->paginate(4);
+        $getPostHighLights = Post::where('sort', '=', Post::POST_HIGHLIGHTS)->orderBy('created_at', 'DESC')->take(3)->get();
+        $getPostNews = Post::where('sort', '=', Post::POST_NEWS)->take(3)->get();
+
+        $getPostHotNews = Post::getNewsOfCategory(Post::POST_HOTNEWS)->first();
+        if($getPostHotNews){
+            $getPostHotNews1 = Post::where('id_category', Post::POST_HOTNEWS)->whereNotIn('id', [$getPostHotNews->id])->orderBy('created_at', 'DESC')->take(3)->get();
+        }
         
-        return view('frontend.home.index', compact(['getPost','getPostData','getPostHighLights', 'getPostNews','getPostHotNews','getPostHotNews1','getPostSport','getPostSport1','getPostCultural','getPostCultural1']));
+
+        $getPostSport = Post::getNewsOfCategory(Post::POST_SPORT)->first();
+        if($getPostSport){
+            $getPostSport1 = Post::where('id_category', Post::POST_SPORT)->whereNotIn('id', [$getPostSport->id])->orderBy('created_at', 'DESC')->take(3)->get();
+
+        }
+
+        $getPostCultural = Post::getNewsOfCategory(Post::POST_CULTURAL)->first();
+        if($getPostCultural){
+            $getPostCultural1 = Post::where('id_category', Post::POST_CULTURAL)->whereNotIn('id', [$getPostCultural->id])->orderBy('created_at', 'DESC')->take(3)->get();
+        }
+
+        return view('frontend.home.index', compact(['getPost', 'getPostData', 'getPostHighLights', 'getPostNews', 'getPostHotNews', 'getPostHotNews1', 'getPostSport', 'getPostSport1', 'getPostCultural', 'getPostCultural1']));
     }
-    public function detail(Request $request) {
-        $getDetail = Post::where('slug', '=', $request->slug)->first();
-        return view('frontend.detail.index', compact('getDetail'));
+    public function detail(Request $request)
+    {
+        $getDetail = Post::with('categories')->where('slug', '=', $request->slug)->orderBy('created_at', 'DESC')->first();
+        if(!$getDetail){
+            abort(404);
+        }
+        $getPostHighLights = Post::where('sort', Post::POST_HIGHLIGHTS)->orderBy('created_at', 'DESC')->take('5')->get();
+        return view('frontend.detail.index', compact('getDetail','getPostHighLights'));
+    }
+    public function category(Request $request)
+    {
+        $category = Category::where('slug', $request->slug)->first();
+        if (!$category) {
+            abort(404);
+        }
+        $posts = Post::where('id_category', $category->id)->get();
+        $getPostHighLights = Post::where('sort', Post::POST_HIGHLIGHTS)->orderBy('created_at', 'DESC')->take('5')->get();
+        $getPostNews = Post::where('sort', '=', Post::POST_NEWS)->orderBy('created_at', 'DESC')->take(5)->get();
+        return view('frontend.category.in', compact('posts', 'category','getPostHighLights','getPostNews'));
     }
 }
