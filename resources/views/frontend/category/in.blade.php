@@ -99,6 +99,6 @@
             <a href="" title=""><img src="images/icon/s1.png" alt=""></a>
         </li>
     </ul>
-</div>ul>
+</div>
 </div>
 @endsection

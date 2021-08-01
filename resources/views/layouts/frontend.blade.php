@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>01 - Trang chủ</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-signin-client_id" content="12345678-gbgin9h7q69rpjehq1cd2441b4nosnid.apps.googleusercontent.com">
         @yield('css')
 
         <link rel="stylesheet" href="{{ asset('frontend/style/main.css') }}">
@@ -23,7 +24,7 @@
         <script src="{{ asset('frontend/vendor/fancybox-master/dist/jquery.fancybox.js') }}"></script>
         <script src="{{ asset('frontend/vendor/slick/slick.js') }}"></script>
         <script src="{{ asset('frontend/vendor/wowjs/wow.min.js') }}"></script>
-        <script src="javascript/app.js"></script>
+        <script src="{{ asset('frontend/javascript/app.js') }}"></script>
         
         <script>
             if($(window).width() > 1200){

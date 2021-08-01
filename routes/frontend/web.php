@@ -12,3 +12,9 @@ Route::prefix('contact')->name('contact.')->group(function () {
     Route::post('/create', 'App\Http\Controllers\Frontend\Contact\ContactController@create')->name('create');
    
 });
+Route::prefix('search')->name('search.')->group(function () {
+    Route::get('/', 'App\Http\Controllers\Frontend\Search\SearchController@index')->name('index');
+   
+});
+Route::get('redirect/{driver}', 'App\Http\Controllers\Frontend\Customer\CustomerController@redirectToProvider')->name('login.provider');
+Route::get('/callback/{provider}', 'App\Http\Controllers\Frontend\Customer\CustomerController@callback');
