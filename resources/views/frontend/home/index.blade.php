@@ -149,13 +149,5 @@
     </div>
 </main>
 
-<div class="action-fixed">
-    <ul>
-        <li><a href="https://zalo.me/0355777573" title=""><img src="https://afa.com.vn/themes/afa/assets/images/icon/s2.png" alt=""></a></li>
-        <li><a href="" title=""><img src="https://afa.com.vn/themes/afa/assets/images/icon/s4.png" alt=""></a></li>
-        <li><a href="" title=""><img src="https://afa.com.vn/themes/afa/assets/images/icon/s3.png" alt=""></a></li>
-        <li><a href="" title=""><img src="https://afa.com.vn/themes/afa/assets/images/icon/s3.png" alt=""></a></li>
-        <li><a href="" title=""><img src="https://afa.com.vn/themes/afa/assets/images/icon/s5.png" alt=""></a></li>
-    </ul>
-</div>
+
 @endsection

@@ -1,5 +1,6 @@
 <header id="header">
     <nav class="ss-navbar" style="margin-bottom: 10px;">
+
         <div class="ss-navbar-logo">
             <a href="{{ route('home.index') }}"><svg x="0px" y="0px" viewBox="0 0 1500 1500" xml:space="preserve" width="165" style="height: 124px;
     margin: -35;
@@ -32,23 +33,28 @@
                     </g>
                 </svg></a>
         </div>
-        <div class="ss-navbar-menu" style="">
+        <div class="ss-navbar-menu">
             <ul>
                 @foreach ($categories as $value)
-                    <li>
-                        <a href="{{ route('home.category', $value->slug)  }}">{{ $value->name }}</a>
-                        @if($value->subcategories->count() > 0)
-                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                            <ul>
-                                @foreach ($value->subcategories as $subMenu)
-                                    <li><a href="">{{ $subMenu->name }}</a></li>
-                                @endforeach
-                            </ul>
-                        @endif
-                        
-                    </li>
+                <li>
+                    <a href="{{ route('home.category', $value->slug)  }}">{{ $value->name }}</a>
+                    @if($value->subcategories->count() > 0)
+                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                    <ul>
+                        @foreach ($value->subcategories as $subMenu)
+                        <li><a href="">{{ $subMenu->name }}</a></li>
+                        @endforeach
+                    </ul>
+                    @endif
+
+                </li>
                 @endforeach
                 <li><a href="{{ route('contact.index') }}">Liên Hệ</a></li>
+                {{ csrf_field() }}
+                <a href="{{ route('login.provider', 'google') }}" 
+                class="btn btn-secondary">{{ __('Google Sign in') }}</a>
+                <!-- <button id="login" type="button" class="btn btn-secondary">Login</button> -->
+
             </ul>
         </div>
         <div class="ss-navbar-toggle">
