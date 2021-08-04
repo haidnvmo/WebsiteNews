@@ -1,0 +1,14 @@
+.user-name {
+    display: block;
+    float: left;
+    margin-top: 24px;
+    margin-left: -20px;
+    color: white;
+    font-size: 16px;
+}
+
+.user-image {
+    height: 20px;
+    margin: 27px;
+    float: left;
+}

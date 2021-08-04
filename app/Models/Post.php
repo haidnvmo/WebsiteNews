@@ -12,17 +12,22 @@ class Post extends Model
     const POST_NEWS = 2;
     const POST_SPORT = 4;
     const POST_CULTURAL = 5;
-    const POST_CONTACT= 6;
     const POST_HOTNEWS = 7;
+    const POST_PROJECT = 8;
     
 
     protected $fillable = [
-        'title', 'description','content','image','slug','id_category','sort',
+        'title', 'description','content','image','slug','id_category','sort','customer_status',
     ];
 
     public function categories()
     {
         return $this->belongsTo(Category::class, 'id_category');
+    }
+
+    public function customerPost()
+    {
+        return $this->belongsTo(Customer::class, 'id_customer');
     }
 
     public static function getNewsOfCategory($idCate) {

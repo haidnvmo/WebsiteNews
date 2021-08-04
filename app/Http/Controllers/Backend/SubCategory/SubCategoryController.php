@@ -33,7 +33,7 @@ class SubCategoryController extends Controller
 
     public function select(Request $request)
     {
-        $subGetCategory = $this->subCategory->get();
+        $subGetCategory = $this->subCategory->with('category')->get();
         if ($request->ajax()) {
             $subGetCategory = SubCategory::where('name', 'like', '%'.$request->name.'%')->get();
     		$view = view('backend.subcategory.ajax.data',compact('subGetCategory'))->render();

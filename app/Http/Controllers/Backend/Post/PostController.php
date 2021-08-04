@@ -16,7 +16,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $categories = Category::get();
+        $categories = Category::with('subCategories')->get();
         return view('backend.post.create', compact('categories'));
     }
 
@@ -37,6 +37,9 @@ class PostController extends Controller
             $data['image'] = $fileNameToStore;
         }
         $NewPost = Post::create($data);
+        $NewPost->customer_status = $request->customer_status;
+
+        $NewPost->save(); 
         return redirect()->route('post.select');
     }
 

@@ -62,43 +62,10 @@
         <br> <br>
         <h2 style="font-weight: bold;font-size: 18px;">Có gì trong cuốn ebook 360 Không gian văn phòng này?</h2>
         <br>
-        <ul style="color:#D6D6D6;">
-            <li style="list-style: inside; margin: 5px 0;">Lịch sử thiết kế không gian văn phòng</li>
-            <li style="list-style: inside; margin: 5px 0;">Chìa khóa nâng cao hiệu quả lao động</li>
-            <li style="list-style: inside; margin: 5px 0;">Thiết kế văn phòng và sức khỏe</li>
-            <li style="list-style: inside; margin: 5px 0;">Thiết kế văn phòng và cảm xúc</li>
-            <li style="list-style: inside; margin: 5px 0;">Không gian văn phòng và màu sắc văn hóa công ty</li>
-            <li style="list-style: inside; margin: 5px 0;">Tối ưu hóa không gian văn phòng</li>
-            <li style="list-style: inside; margin: 5px 0;">Các yếu tố tạo nên một không gian làm việc năng động, khuyến khích nhân viên làm việc hiệu quả</li>
-            <li style="list-style: inside; margin: 5px 0;">Xu hướng thiết kế nội thất văn phòng hiện đại</li>
-            <li style="list-style: inside; margin: 5px 0;">Các lỗi thiết kế văn phòng phổ biến thường gặp</li>
-            <li style="list-style: inside; margin: 5px 0;">Những điều cần biết khi chuyển văn phòng</li>
-            <li style="list-style: inside; margin: 5px 0;">8 lỗi cần tránh khi chuyển văn phòng</li>
-            <li style="list-style: inside; margin: 5px 0;">Và rất nhiều điều khác nữa.</li>
-        </ul>
         <br>
         <p>Linh đọc online: <a href="" title="" style="font-weight: 500">Click vào đây</a></p>
     </div>
 </div>
 </main>
-<div class="action-fixed">
-    <ul>
-        <li>
-            <a href="" title=""><img src="images/icon/s5.png" alt=""></a>
-        </li>
-        <li>
-            <a href="" title=""><img src="images/icon/s4.png" alt=""></a>
-        </li>
-        <li>
-            <a href="" title=""><img src="images/icon/s3.png" alt=""></a>
-        </li>
-        <li>
-            <a href="" title=""><img src="images/icon/s2.png" alt=""></a>
-        </li>
-        <li>
-            <a href="" title=""><img src="images/icon/s1.png" alt=""></a>
-        </li>
-    </ul>
-</div>
 </div>
 @endsection
