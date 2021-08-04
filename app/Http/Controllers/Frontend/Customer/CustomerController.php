@@ -12,6 +12,7 @@ use App\Models\Customer;
 use App\Models\User;
 use Socialite;
 use Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CustomerController extends Controller
 {
@@ -22,6 +23,7 @@ class CustomerController extends Controller
      */
     public function redirectToProvider($driver)
     {
+
         return  Socialite::driver($driver)->redirect();
 
         //$this->registerGoogleLoginUser($user);
@@ -30,13 +32,18 @@ class CustomerController extends Controller
     }
     public function callback($provider)
     {
-
         $getInfo = Socialite::driver($provider)->user();
         $user = $this->registerGoogleLoginUser($getInfo, $provider);
-        dd($user);
-        auth()->login($user);
 
-        return redirect()->to('/');
+        $data = [
+            'email' => $user->email,
+            'password' => $user->provider_id,
+        ];
+
+        $customer = Auth::guard('customer')->attempt($data);
+        if ($customer) {
+            return redirect()->to('/');
+        }
     }
 
     protected function registerGoogleLoginUser($data, $provider)
@@ -44,14 +51,19 @@ class CustomerController extends Controller
         $customer = Customer::where('provider_id', $data->id)->first();
         if (!$customer) {
             $customer = Customer::create([
-            'name' => $data->name,
-            'email' => $data->email,
-            'provider_id' => $data->id,
-            'provider_name' => $provider,
-            'avatar' => $data->avatar,
-            ]);          
-        }  
+                'name' => $data->name,
+                'email' => $data->email,
+                'provider_id' => $data->id,
+                'password' => Hash::make($data->id),
+                'provider_name' => $provider,
+                'avatar' => $data->avatar,
+            ]);
+        }
         return $customer;
-        
+    }
+    public function logout(Request $request)
+    {
+        Auth::guard('customer')->logout();
+        return redirect()->route('home.index');
     }
 }

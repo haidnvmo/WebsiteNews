@@ -33,7 +33,7 @@ class StoreCategoryRequest extends FormRequest
     public function messages()
     {
         return [
-            'name.required' => 'Xin vui lòng nhập title',
+            'name.required' => 'Xin vui lòng nhập name',
             'name.max' => 'title không được quá 255 kí tự',
             'slug.required' => 'Xin vui lòng nhập slug',
             'slug.max' => 'slug không được quá 255 kí tự',

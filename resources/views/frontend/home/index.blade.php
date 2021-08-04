@@ -47,7 +47,7 @@
                 <div class="box-item">
                     <div class="item">
                         @foreach ($getPostData as $value)
-                        <span style="color:yellow;">{{ $value->categories->name }}</span><br>
+                        <span style="color:red; font-size:20px">{{ $value->categories->name }}</span><br>
                         <div class="item-img"><br>
                             <a href="{{ route('home.detail', $value->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$value->image) }}" alt=""></a> <br>
                         </div>
@@ -144,10 +144,45 @@
                         @endif
                     </div>
                 </div>
+                <div class="list-item">
+                    @if($getPostProject)
+                    <h3 class="list-title"><a href="{{ route('home.detail',$getPostCultural->slug) }}" title="">{{ $getPostProject->categories->name }}</a></h3>
+                    <div class="list-content">
+                        <div class="list-content_left">
+                            <div class="item">
+                                <div class="item-img">
+                                    <a href="{{ route('home.detail',$getPostCultural->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$getPostProject->image) }}" alt=""></a>
+                                </div>
+                                <div class="item-body">
+                                    <h4 class="item-title"><a href="{{ route('home.detail',$getPostProject->slug) }}" title="">{{ $getPostProject->title  }}</a></h4>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="list-content_right">
+                            <ul>
+                                @foreach ($getPostProject1 as $value)
+                                <span style="font-size:10px;">{{ $value->created_at }}</span>
+                                <li><a href="{{ route('home.detail',$value->slug) }}" title="">{{ $value->title }}</a></li>
+
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </main>
-
+<div class="action-fixed">
+    <ul>
+        <li><a href="" title=""><img src="images/icon/s5.png" alt=""></a></li>
+        <li><a href="" title=""><img src="images/icon/s4.png" alt=""></a></li>
+        <li><a href="" title=""><img src="images/icon/s3.png" alt=""></a></li>
+        <li><a href="" title=""><img src="images/icon/s2.png" alt=""></a></li>
+        <li><a href="" title=""><img src="images/icon/s1.png" alt=""></a></li>
+    </ul>
+</div>
 
 @endsection
