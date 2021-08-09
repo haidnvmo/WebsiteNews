@@ -5,7 +5,7 @@
    <div class="container ">
       <div class="row ">
          <div class="col-md-4 col-md-offset-4 login-sec">
-            <h2 class="text-center">Update News</h2>
+            <h2 class="text-center">Update Subcategory</h2>
             @include('components.alert')
             <form class="login-form" action='{{ route("subcategory.update") }} ' method='POST' enctype="multipart/form-data">
                {{ csrf_field() }}
@@ -24,5 +24,4 @@
                </div>
             </form>
 </section>
-
 @endsection

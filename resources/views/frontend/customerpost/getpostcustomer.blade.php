@@ -8,7 +8,7 @@
                 <th>Bài viết</th>
                 <th>Trạng thái</th>               
                 <th>Action</th>
-                <th><a href="{{ route('customerpost.index') }}">Thêm bài viết</a></th>
+                <th><a href="{{ route('customerpost.index') }}" style="color:red;">Thêm bài viết</a></th>
             </tr>
         </thead>
         <tbody>
@@ -16,7 +16,7 @@
             <tr>
                 <td>{{ $value->title }}</td>
                 <td>{{ $value->status === 1 ? 'Đã được đăng' : 'Chờ xét duyệt' }}</td>
-                <td><a href="{{ route('customerpost.edit', $value->id) }}">Edit</a>  <a href="{{ route('customerpost.delete', $value->id) }}">Delete</a> </td>
+                <td ><a href="{{ route('customerpost.edit', $value->id) }}" style="color:red;">Edit</a>  <a href="{{ route('customerpost.delete', $value->id) }}" style="color:red;">Delete</a> </td>
             </tr>
             @endforeach
 

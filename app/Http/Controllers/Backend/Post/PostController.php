@@ -102,13 +102,10 @@ class PostController extends Controller
 
     public function search(Request $request)
     {
-        // $search = $request['name'];
-        // $data = Post::where('title', 'LIKE', "%{$search}%")->get();
-        // return response()->json([
-        //     'data' => $data,             
-        // ]);
-        // $getAllPost =  Post::where('title','LIKE','%'.$request->title.'%')->get();
-        // return view('backend.post.select',compact('getAllPost'));
+        
+        $searchPostHome = Post::with('categories')->where('title', 'LIKE', "%$request->title%")->get();
+        
+        return view('frontend.search.index',compact('searchPostHome'));
 
     }
 }

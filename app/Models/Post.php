@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Post extends Model
 {
+
     protected $table = 'posts';
     const POST_HIGHLIGHTS = 1;
     const POST_NEWS = 2;
@@ -20,6 +22,7 @@ class Post extends Model
         'title', 'description','content','image','slug','id_category','sort','customer_status',
     ];
 
+ 
     public function categories()
     {
         return $this->belongsTo(Category::class, 'id_category');

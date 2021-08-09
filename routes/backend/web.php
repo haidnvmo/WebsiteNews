@@ -45,3 +45,4 @@ Route::prefix('login')->name('login.')->group(function () {
     Route::get('/', 'App\Http\Controllers\Auth\LoginController@index')->name('index');
     Route::post('/', 'App\Http\Controllers\Auth\LoginController@login')->name('login');
 });
+

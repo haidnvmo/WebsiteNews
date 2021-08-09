@@ -48,14 +48,7 @@
                         <!--  search form end -->
                     </div>
                     <br>
-                    <ol class="breadcrumb">
-                        <li><i class="fa fa-home"></i><a href="index.html">Home</a></li>
-                        <li><i class="fa fa-table"></i>Table</li>
-                        <li><i class="fa fa-th-list"></i>Basic Table</li>
-                        <div class="nav search-row" id="top_menu">
-                            <!--  search form start -->
-
-                    </ol>
+                 
                 </div>
                 </div>
                 <!-- page start-->
@@ -73,8 +66,8 @@
                                         <th>description</th>
                                         <th>Image</th>
                                         <th>Slug</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th>Action</th>
+                                        
                                     </tr>
                                 </thead>
                                 <tbody id="list-post">

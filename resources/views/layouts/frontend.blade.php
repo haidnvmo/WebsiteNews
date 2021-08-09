@@ -6,6 +6,7 @@
     <title>Website News</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-signin-client_id" content="12345678-gbgin9h7q69rpjehq1cd2441b4nosnid.apps.googleusercontent.com">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
     @yield('css')
     <link rel="stylesheet" href="{{ asset('frontend/style/header.css') }}">
@@ -19,13 +20,16 @@
     <link rel="stylesheet" href="{{ asset('frontend/style/main.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/post.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/category/css/style.css') }}">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
 </head>
 
 <body class="body">
-    @yield('content')
     @include('includes.frontend.header')
+    @yield('content')
 
+    @include('includes.frontend.footer')
     <script src="{{ asset('frontend/vendor/jquery-3.2.1.min.js') }}"></script>
     <script src="{{ asset('frontend/vendor/fullpage/fullpage.js') }}"></script>
     <script src="{{ asset('frontend/vendor/fancybox-master/dist/jquery.fancybox.js') }}"></script>
@@ -43,7 +47,6 @@
             })
         }
     </script>
-    @include('includes.frontend.footer')
 </body>
 
 </html>

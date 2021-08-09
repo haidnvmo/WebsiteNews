@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{-- <meta name="csrf-token" content="{{ csrf_token() }}" /> --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}" /> 
     <title>Blog</title>
 
     <!-- Bootstrap CSS -->
@@ -25,16 +25,10 @@
 
 <body>
     @yield('content')
-
-    <!-- jQuery -->
-    <script src="{{ asset('backend/js/jquery-1.8.3.min.js') }}"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    
-   
+    <script src="{{ asset('backend/js/jquery-1.8.3.min.js') }}"></script>
 
 </body>
 

@@ -32,48 +32,37 @@
         <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h3 class="page-header"><i class="fa fa-table"></i> Table</h3>
-                        <ul class="nav top-menu">
-                            <li>
-                                <form class="navbar-form" action="" method="GET">
-                                    <div class="form-group">
-                                        <input style="margin: -10px;margin-bottom: 10px;" class="form-control" name="search" data-url="{{ route('category.select') }}"  id="search-category" placeholder="Search" type="text">
-                                        <!-- <button type="button" style="padding:4px;" id="searchPost" class="btn btn-primary">Tìm kiếm</button> -->
-                                    </div>
-                                </form>
-                            </li>
-                        </ul>
-                        <ol class="breadcrumb">
-                            <li><i class="fa fa-table"></i>Table</li>
-                        </ol>
-                    </div>
-                </div>
-                <!-- page start-->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                <span style=""><a href="{{ route('category.index') }}">Add Category</a></span>
-                            </header>
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>slug</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="list-category">
-                                    @include('backend.category.ajax.data')
-                                </tbody>
-                            </table>
-                        </section>
-                    </div>
+            <section class="login-block">
+    <div class="container ">
+        <div class="row ">
+            <div class="col-md-4 col-md-offset-4 login-sec">
+                <h2 class="text-center">Category</h2>
+                <!-- @include('components.alert') -->
+                <form class="login-form" action="{{ route('category.create') }}" method='POST' enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label for="exampleInputEmail1" class="text-uppercase">Name <sup>*</sup></label>
 
-                </div>
+                        <input type="text" onkeyup="ChangeToSlug();" id="name" name='name' class="form-control" placeholder="">
+                        <span id="error"></span>
+                        @error('name')
+                        <div class="error" style="color:red;">{{ $message }}</div>
+                        @enderror
+                        <span id="error-name"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" class="text-uppercase">Slug <sup>*</sup></label>
+                        <input type="text" id="slug" name='slug' class="form-control" placeholder="">
+                        @error('slug')
+                        <div class="error" style="color:red;">{{ $message }}</div>
+                        @enderror
+                        <span id="error-slug"></span>
+                    </div>
+                    <div class="form-check col-md-offset-4">
+                        <button type="submit" data-url="" id="createCategory" class="btn btn-primary">Thêm</button>
+                    </div>
+                </form>
+</section>
                 <!-- page end-->
             </section>
         </section>

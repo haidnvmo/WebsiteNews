@@ -17,5 +17,5 @@ return [
     'error_password'             => 'Mật khẩu hoặc tài khoản không đúng',
     'succssefullCategory'             => 'Đăng ký thành công',
     'sendmail'             => 'Bạn đã gửi mẫu thành công',
-
+    'ErrorComment'             => 'Xin vui lòng đăng nhập để bình luận',
 ];
