@@ -1,27 +1,41 @@
 @extends('layouts.frontend')
 
 @section('content')
+<style>
+.des-post{ 
+    overflow: hidden;
+    width: 350px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+</style>
 <main id="news-wrapper">
     <div class="container-master">
-
         <h1 class="news-title">{{ $category->name }}</h1>
-
         <div class="news-head">
             <div class="news-head_left">
                 @if ($posts)
                     @foreach ($posts as $value)
-                    <div class="item">
-                        <div class="item-img">
-                            <a href="{{ route('home.detail',$value->slug) }}" rel="follow" title="Học ngay cách thiết kế mô hình văn phòng hiện đại của người Nhật" class="imgc"><img src="{{ asset('storage/avatars/'.$value->image) }}" alt="" title=""></a>
+                        <div class="item" style="min-height: 230px;">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="float: left;">
+                                    <div class="item-img">
+                                        <a href="{{ route('home.detail',$value->slug) }}" rel="follow"  class="img"><img src="{{ asset('storage/avatars/'.$value->image) }}" alt="" style="max-height:194px;width: 100%;object-fit: cover;"></a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="float: left;">
+                                    <div class="item-body" style="padding-top:0px;">
+                                        <h3 class="item-title"><a href="{{ route('home.detail',$value->slug) }}" rel="follow" >{{ $value->title }}</a></h3>
+                                        <p class="des-post">{{ $value->description }}</p>
+                                        <h4 class="desc"></h4>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="item-body">
-                            <h3 class="item-title"><a href="{{ route('home.detail',$value->slug) }}" rel="follow" title="Học ngay cách thiết kế mô hình văn phòng hiện đại của người Nhật">{{ $value->title }}</a></h3>
-                            <h4 class="desc"></h4>
-                        </div>
-                    </div>
                     @endforeach
                 @endif
-
             </div>
             <div class="news-head_right">
                 <div class="box-item">
@@ -51,21 +65,6 @@
         </div>
     </div>
 </main>
-<div class="container-master">
-    <h1 class="research-title">Ebook</h1>
-    <div class="post-content">
-        Cuộc sống công sở chốn văn phòng chiếm tối thiểu từ 8 tiếng hoặc hơn nữa mỗi ngày. Có thể nói, văn phòng dường như trở thành ngôi nhà thứ hai của chúng ta. Cũng chính bởi vậy mà chất lượng không gian làm việc có tác động và ảnh hưởng lớn tới hiệu quả lao động nói riêng và thậm chí cả sức khỏe tâm sinh lý của con người nói chung. Không gian văn phòng thoải mái, môi trường làm việc thân thiện sẽ góp phần không nhỏ vào việc nâng cao hiệu quả lao động, giúp gắn kết các thành viên với nhau, gắn kết cá nhân với tập thể, gữa nhân viên với công ty. Mặt khác, văn phòng cũng là nơi hình ảnh thương hiệu của công ty, doanh nghiệp được khẳng định.
-        <br> <br>
-        Thấu hiểu điều đó, AFA Design đã nghiên cứu và tổng hợp những thông tin đa chiều từ đó đưa ra những tư vấn, định hướng chuyên sâu về muôn màu không gian văn phòng. Chúng tôi rất hy vọng công sức bé nhỏ này sẽ góp phần vào việc nâng cao chất lượng không gian làm việc của Việt Nam nói riêng và các nước trong khu vực nói chung. Điều này đánh dấu sự ra đời của ebook “360 không gian văn phòng”.
-        <br> <br>
-        <div style="text-align: center;"><img src="images/project/p12.jpg" alt=""></div>
-        <br> <br>
-        <h2 style="font-weight: bold;font-size: 18px;">Có gì trong cuốn ebook 360 Không gian văn phòng này?</h2>
-        <br>
-        <br>
-        <p>Linh đọc online: <a href="" title="" style="font-weight: 500">Click vào đây</a></p>
-    </div>
-</div>
 </main>
 </div>
 @endsection

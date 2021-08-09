@@ -47,21 +47,22 @@
                 <div class="box-item">
                     <div class="item">
                         @foreach ($getPostData as $value)
-                        <span style="color:red; font-size:20px">{{ $value->categories->name }}</span><br>
-                        <div class="item-img"><br>
-                            <a href="{{ route('home.detail', $value->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$value->image) }}" alt=""></a> <br>
-                        </div>
-                        <br>
-                        <div class="item-body">
-                            <h3 class="item-title"><a href="{{ route('home.detail', $value->slug) }}" title="">{{ $value->title  }}</a></h3>
-                            <h4 class="desc">
-                                {{ $value->description }}
-                            </h4><br><br>
-                        </div>
+                            <span style="color:red; font-size:20px">{{ $value->categories->name }}</span><br>
+                            <div class="item-img"><br>
+                                <a href="{{ route('home.detail', $value->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$value->image) }}" alt=""></a> <br>
+                            </div>
+                            <br>
+                            <div class="item-body">
+                                <h3 class="item-title"><a href="{{ route('home.detail', $value->slug) }}" title="">{{ $value->title  }}</a></h3>
+                                <h4 class="desc">
+                                    {{ $value->description }}
+                                </h4><br><br>
+                            </div>
                         @endforeach
-
                     </div>
                 </div>
+
+                <span style="text-align: center;">{{ $getPostData->links() }}</span>
             </div>
             <div class="news-list_right">
                 <div class="list-item">

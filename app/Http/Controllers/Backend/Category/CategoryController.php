@@ -25,7 +25,12 @@ class CategoryController extends Controller
 
     public function create(StoreCategoryRequest $request)
     {
+        
         $NewCategory = $this->category->create($request->validated());
+        // if(!$NewCategory){
+        //     return  response()->json(['error' => 'vui long nhap name']);
+        // }
+        //     return  response()->json(['data' => $NewCategory]);      
         return redirect()->route('category.select')->with('status', lang::get('messages,succssefullCategory'));
     }
 
@@ -57,4 +62,5 @@ class CategoryController extends Controller
         $deleteCategory = $this->category->delete($request->id);
         return redirect()->route('category.select');
     }
+   
 }

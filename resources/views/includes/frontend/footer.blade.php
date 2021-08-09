@@ -3,7 +3,7 @@
                 <div class="container-master">
                     <div class="row-master">
                         <div class="col-12 col-md-4">
-                            <div class="foot-title">Thiết kế văn phòng & Fit Out</div>
+                            <div class="foot-title">Ứng viên</div>
                             <div class="foot-content">
                                 <div class="text">
                                     AfA Design – Thiết kế văn phòng theo nhận diện thương hiệu, văn phòng sáng tạo, tạo ra những không gian “Xanh”, mang nhiều tính trải nghiệm. Mang đến những giải pháp mới về không gian và vật liệu giúp tối ưu chi phí, thời gian..

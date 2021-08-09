@@ -45,9 +45,7 @@
                                 </form>
                             </li>
                         </ul>
-                        <ol class="breadcrumb">
-                            <li><i class="fa fa-table"></i>Table</li>
-                        </ol>
+               
                     </div>
                 </div>
                 <!-- page start-->
@@ -55,7 +53,7 @@
                     <div class="col-sm-12">
                         <section class="panel">
                             <header class="panel-heading">
-                                <span style=""><a href="{{ route('subcategory.index') }}">Add Category</a></span>
+                                <span style=""><a href="{{ route('subcategory.index') }}">Add SubCategory</a></span>
                             </header>
                             <table class="table">
                                 <thead>
@@ -63,7 +61,7 @@
                                         <th>Name</th>
                                         <th>slug</th>
                                         <th>Category_id</th>
-                                        <th>Delete</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody id="list-subcategory">

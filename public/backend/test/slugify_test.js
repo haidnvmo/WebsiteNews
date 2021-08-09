@@ -138,9 +138,9 @@
     test('test the static lang feature', function() {
 
         expect(3);
-        strictEqual($.slugify('mäh', { 'lang': 'hu' }), 'mah',
+        strictEqual($.slugify('mäh', {'lang':'hu'}), 'mah',
             'Hungarian specific lang option');
-        strictEqual($.slugify('mäh', { 'lang': 'de' }), 'maeh',
+        strictEqual($.slugify('mäh', {'lang':'de'}), 'maeh',
             'German specific lang option');
         strictEqual($.slugify('mäh'), 'maeh',
             'Default lang option');
@@ -155,7 +155,7 @@
         strictEqual($.slugify('mäh'), 'maeh',
             'German specific lang option');
         $('html').prop('lang', 'hu');
-        strictEqual($.slugify('mäh', { 'lang': 'de' }), 'maeh',
+        strictEqual($.slugify('mäh', {'lang':'de'}), 'maeh',
             'German specific lang option overrides html attribute');
     });
 
@@ -167,15 +167,15 @@
         $('#slug-target-locked').slugify('#slug-source-locked');
         $('#slug-source-locked').val('Hello    good      Sir!   ').trigger('change');
         equal($('#slug-target-locked').val(), 'hello-good-sir', "Correct slug in target field change event");
-
+    
         $('#slug-target-locked').val('changed').trigger('change');
         $('#slug-source-locked').val('');
         $('#slug-target-locked').val('');
 
         $('#slug-source-locked').val('Hello    good      Sir!   ').trigger('change');
         equal($('#slug-target-locked').val(), 'hello-good-sir', "Correct slug in target field change event");
-
-
+    
+    
     });
 
     QUnit.testDone(function() {

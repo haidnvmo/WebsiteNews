@@ -26,7 +26,7 @@ class StorePostRequest extends FormRequest {
             'title'    => 'required|max:255',
             'slug' => 'required|max:255',
             'content'    => 'required',
-            'description' => 'required|max:2000',
+            'description' => 'required',
             'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
             'id_category' => 'required',
             'sort' => 'nullable'
@@ -43,7 +43,6 @@ class StorePostRequest extends FormRequest {
             'content.required' => 'Xin vui lòng nhập content',
             'content.max' => 'content không được quá 255 kí tự',
             'description.required' => 'Xin vui lòng nhập description',
-            'description.max' => 'description không được quá 2000 kí tự',
             'image.image' => 'xin vui lòng choose image',
             'image.mimes' => 'bạn chỉ được nhap ieg ng jg gif svg',
             'image.max' => 'image không được quá 2048MB',

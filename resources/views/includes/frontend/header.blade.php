@@ -42,7 +42,7 @@
                     <i class="fa fa-angle-down" aria-hidden="true"></i>
                     <ul>
                         @foreach ($value->subcategories as $subMenu)
-                        <li><a href="{{ route('home.detail', $subMenu->slug) }}" style="color: while;">{{ $subMenu->name }}</a></li>
+                        <li><a href="{{ route('home.detail', $subMenu->slug) }}" id="list-submenu">{{ $subMenu->name }}</a></li>
                         @endforeach
                     </ul>
                     @endif
@@ -50,24 +50,52 @@
                 </li>
                 @endforeach
                 <li><a href="{{ route('contact.index') }}">Liên Hệ</a></li>
-                <li >
+                <li>
                     @if(Auth::guard('customer')->user())
-                        <img class="user-image" style="height: 20px;margin: 27px;" src="{{ Auth::guard('customer')->user()->avatar }}" alt="">
-                        <span class="user-name">{{ Auth::guard('customer')->user()->name }}</span>
-                        <ul>
-                            <li><a href="#" ><i class="icon_clock_alt"></i>Thông Tin</a></li>
-                            <li><a href="{{ route('customerpost.select') }}" ><i class="icon_clock_alt"></i> Đăng bài</a></li>
-                                <li><a href="#" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"><i class="icon_clock_alt"></i> Logout</a></li>
-                                <form id="frm-logout" action="{{ route('customer.logout') }}" method="POST" style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                        </ul>
+                    <img class="user-image" style="height: 20px;margin: 27px;" src="{{ Auth::guard('customer')->user()->avatar }}" alt="">
+                    <span class="user-name">{{ Auth::guard('customer')->user()->name }}</span>
+                    <ul>
+                        <li><a href="#"><i class="icon_clock_alt"></i>Thông Tin</a></li>
+                        <li><a href="{{ route('customerpost.select') }}"><i class="icon_clock_alt"></i> Đăng bài</a></li>
+                        <li><a href="#" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"><i class="icon_clock_alt"></i> Logout</a></li>
+                        <form id="frm-logout" action="{{ route('customer.logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}
+                        </form>
+                    </ul>
                     @else
-                        <a href="{{ route('login.provider', 'google') }}" style="background-color: black;">{{ __('G-SUITE LOGIN') }}</a>
+                    <a href="{{ route('login.provider', 'google') }}">{{ __('G-SUITE LOGIN') }}</a>
                     @endif
                 </li>
 
+                <!-- <form id="search" action="{{ route('search.posthome') }}" method="GET" role="form">            
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="title" placeholder="search"><button type="submit" class="btn btn-primary">Submit</button>
+                    </div>                     
+                    
+                </form> -->
+
             </ul>
+
         </div>
+        <div class="ss-navbar-toggle">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+                <rect x="0" y="0" width="4" height="4" stroke-width="0"></rect>
+                <rect x="20" y="0" width="4" height="4" stroke-width="0"></rect>
+                <rect x="10" y="10" width="4" height="4" stroke-width="0"></rect>
+                <rect x="0" y="20" width="4" height="4" stroke-width="0"></rect>
+                <rect x="20" y="20" width="4" height="4" stroke-width="0"></rect>
+                <rect x="10" y="0" width="4" height="4" stroke-width="0" class="icon-animate1"></rect>
+                <rect x="0" y="10" width="4" height="4" stroke-width="0" class="icon-animate2"></rect>
+                <rect x="20" y="10" width="4" height="4" stroke-width="0" class="icon-animate3"></rect>
+                <rect x="10" y="20" width="4" height="4" stroke-width="0" class="icon-animate4"></rect>
+            </svg>
+        </div>
+   
     </nav>
 </header>
+
+
+
+       
+
+     

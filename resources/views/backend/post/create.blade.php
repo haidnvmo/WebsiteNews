@@ -5,12 +5,12 @@
    <div class="container ">
       <div class="row ">
          <div class="col-md-10  login-sec">
-            <h2 class="text-center">News</h2>
+            <h2 class="text-center">Post</h2>
             <form class="login-form" action='{{ route("post.create") }} ' method='POST' enctype="multipart/form-data">
                {{ csrf_field() }}
                <div class="form-group">
                   <label for="exampleInputEmail1" class="text-uppercase">Title <sup>*</sup></label>
-                  <input type="text" onload="convertToSlug(this.value)" onkeyup="convertToSlug(this.value)" id="title" name='title' value="{{ old('title') }}" class="form-control" placeholder="">
+                  <input type="text"  onkeyup="ChangeToSlug();" id="title" name='title' value="{{ old('title') }}" class="form-control" placeholder="">
                   @error('title')
                   <div class="error" style="color:red;">{{ $message }}</div>
                   @enderror
@@ -25,7 +25,7 @@
                      @foreach ($value->subCategories as $subcategory)
                      <option value="">{{ $subcategory->name }}</option>
                      @endforeach
-                     @endif
+                     @endif                                     
                      @endforeach
                   </select>
                </div>
@@ -40,7 +40,7 @@
 
                <div class="form-group">
                   <label for="exampleInputPassword1" class="text-uppercase">Slug <sup>*</sup></label>
-                  <input type="text" id="slug-text" name='slug' class="form-control" placeholder="">
+                  <input type="text" id="slug" name='slug' class="form-control" placeholder="">
                   @error('slug')
                   <div class="error" style="color:red;">{{ $message }}</div>
                   @enderror
@@ -85,7 +85,7 @@
 
 <script src="{{ asset('backend/js/jquery-1.8.3.min.js') }}"></script>
 
-<script>
+<!-- <script>
    /* Encode string to slug */
    function convertToSlug(str) {
 
@@ -97,15 +97,47 @@
 
 
       // replace space with dash/hyphen
-      // str = str.toLowerCase();
-      // str = str.replace(/[^a-zA-Z0-9]+/g, '-');
-      str = str.replace(/[`~!@#$%^&*()_\-+=\[\]{};:'"\\|\/,.<>?\s]/g, ' ').toLowerCase();
+      str = str.toLowerCase();
+      str = str.replace(/ /g, '-').replace(/[^\w-]+/g, '');
 
-      // trim spaces at start and end of string
-      str = str.replace(/^\s+|\s+$/gm, '');
-
-      // replace space with dash/hyphen
-      str = str.replace(/\s+/g, '-');
+      $("#slug-text").val(str);
       //return str;
    }
+</script> -->
+
+<script language="javascript">
+            function ChangeToSlug()
+            {
+                var title, slug;
+ 
+                //Lấy text từ thẻ input title 
+                title = document.getElementById("title").value;
+ 
+                //Đổi chữ hoa thành chữ thường
+                slug = title.toLowerCase();
+ 
+                //Đổi ký tự có dấu thành không dấu
+                slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+                slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+                slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+                slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+                slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+                slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+                slug = slug.replace(/đ/gi, 'd');
+                //Xóa các ký tự đặt biệt
+                slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
+                //Đổi khoảng trắng thành ký tự gạch ngang
+                slug = slug.replace(/ /gi, "-");
+                //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+                //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+                slug = slug.replace(/\-\-\-\-\-/gi, '-');
+                slug = slug.replace(/\-\-\-\-/gi, '-');
+                slug = slug.replace(/\-\-\-/gi, '-');
+                slug = slug.replace(/\-\-/gi, '-');
+                //Xóa các ký tự gạch ngang ở đầu và cuối
+                slug = '@' + slug + '@';
+                slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+                //In slug ra textbox có id “slug”
+                document.getElementById('slug').value = slug;
+            }
 </script>
