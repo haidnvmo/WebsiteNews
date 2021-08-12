@@ -27,6 +27,7 @@ class StoreCategoryRequest extends FormRequest
         return [
             'name'    => 'required|max:255',
             'slug' => 'required|max:255',
+            'parent_id' => 'nullable',
         ];
     }
 

@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Kyslik\ColumnSortable\Sortable;
 
 class Post extends Model
 {
+    use Sortable;
 
     protected $table = 'posts';
     const POST_HIGHLIGHTS = 1;
@@ -19,9 +21,9 @@ class Post extends Model
     
 
     protected $fillable = [
-        'title', 'description','content','image','slug','id_category','sort','customer_status',
+        'title', 'description','content','image','slug','id_category','sort','customer_status','status',
     ];
-
+    public $sortable = ['title'];
  
     public function categories()
     {

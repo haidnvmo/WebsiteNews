@@ -9,7 +9,7 @@
 
         <!--sidebar start-->
         <aside>
-            @include('backend.table.index')
+        @include('backend.table.index')
         </aside>
 
         <!--main content start-->
@@ -19,10 +19,10 @@
                     <div class="col-lg-12">
                         <ul class="nav top-menu">
                             <li>
-                                <form  class="navbar-form" action="" method="GET">
-                                    <div class="form-group" style="margin: -10px;margin-bottom: 10px;">
-                                        <input class="form-control" data-url="{{ route('post.select') }}" name="search" id="search-post" placeholder="Search" type="text">
-
+                                <form class="navbar-form" action="" method="GET">
+                                    <div class="form-group">
+                                        <input class="form-control" data-url="{{ route('post.select') }}" name="search" id="customer-post" placeholder="Search" type="text">
+                                        
                                     </div>
                                 </form>
                             </li>
@@ -30,32 +30,28 @@
                         <!--  search form end -->
                     </div>
                     <br>
-
+                 
                 </div>
                 </div>
                 <!-- page start-->
-
+               
                 <div class="row">
-
-                    <span id="add-post"><a href="{{ route('post.index') }}" class="btn btn-primary"><i class="fa fa-plus" aria-hidden="true"></i> Add Post</a></span>
                     <div class="col-sm-12">
-                        <section class="panel">
+                        <section class="panel">               
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>@sortablelink('title')</th>
-                                        <th>@sortablelink('categories.name')</th>
-                                        <th>image</th>                                   
-                                        <th style="padding-left: 50px;">Action</th>
+                                        <th>Title</th>
+                                        <th>Category</th>
+                                        <th>Status</th>
+                                        <th>Image</th>                                       
                                     </tr>
                                 </thead>
-                                <tbody id="list-post">
-                                    @include('backend.post.ajax.data')
+                                <tbody id="list-customerpost">
+                                    @include('backend.customerPost.ajax.data')
                                 </tbody>
                             </table>
-
                         </section>
-                        <div style="text-align: center;">{{ $getAllPost->links() }}</div>
                     </div>
                 </div>
                 <!-- page end-->
@@ -77,13 +73,13 @@
     <script src="{{ asset('backend/js/jquery-1.8.3.min.js') }}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#search-post').keyup(function() {
-                var title = $('#search-post').val();
+            $('#customer-post').keyup(function() {
+                var title = $('#customer-post').val();
                 var url = $(this).attr('data-url');
                 $.ajax({
                         url: url,
                         type: "GET",
-                        data: {
+                        data: { 
                             title
                         }
                     })
@@ -92,8 +88,8 @@
                             $('.ajax-load').html("No more records found");
                             return;
                         }
-                        $('#list-post tr').remove();
-                        $("#list-post").append(data.html);
+                        $('#list-customerpost tr').remove();
+                        $("#list-customerpost").append(data.html);
                     })
                     .fail(function(jqXHR, ajaxOptions, thrownError) {
                         alert('server not responding...');

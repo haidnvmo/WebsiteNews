@@ -16,6 +16,7 @@ class AddVotesPostsTable extends Migration
         Schema::table('posts', function (Blueprint $table) {
             $table->integer('id_customer')->unsigned()->nullable();
             $table->foreign('id_customer')->references('id')->on('customer')->onDelete('cascade');
+            $table->integer('id_subcategory')->unsigned()->nullable();
         });
     }
 

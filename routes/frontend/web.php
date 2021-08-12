@@ -17,7 +17,7 @@ Route::prefix('contact')->name('contact.')->group(function () {
 Route::prefix('customerpost')->name('customerpost.')->group(function () {
     Route::get('/create', 'App\Http\Controllers\Frontend\CustomerPost\CustomerPostController@index')->name('index');
     Route::post('/', 'App\Http\Controllers\Frontend\CustomerPost\CustomerPostController@create')->name('create');
-    Route::get('/', 'App\Http\Controllers\Frontend\CustomerPost\CustomerPostController@select')->name('select');
+    Route::get('/', 'App\Http\Controllers\Frontend\CustomerPost\CustomerPostController@select')->name('get');
     Route::get('/edit/{id}', 'App\Http\Controllers\Frontend\CustomerPost\CustomerPostController@edit')->name('edit');
     Route::patch('/update', 'App\Http\Controllers\Frontend\CustomerPost\CustomerPostController@update')->name('update');
     Route::get('/delete{id}', 'App\Http\Controllers\Frontend\CustomerPost\CustomerPostController@delete')->name('delete');

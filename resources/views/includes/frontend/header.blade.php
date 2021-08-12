@@ -36,18 +36,18 @@
         <div class="ss-navbar-menu">
             <ul>
                 @foreach ($categories as $value)
-                <li>
-                    <a href="{{ route('home.category', $value->slug)  }}">{{ $value->name }}</a>
-                    @if($value->subcategories->count() > 0)
-                    <i class="fa fa-angle-down" aria-hidden="true"></i>
-                    <ul>
-                        @foreach ($value->subcategories as $subMenu)
-                        <li><a href="{{ route('home.detail', $subMenu->slug) }}" id="list-submenu">{{ $subMenu->name }}</a></li>
-                        @endforeach
-                    </ul>
-                    @endif
-
-                </li>
+                    <li>
+                        <a href="{{ route('home.category', $value->slug)  }}">{{ $value->name }}</a>
+                        @if($subCategories->count() > 0)
+                            <ul>
+                                @foreach ($subCategories as $subMenu)
+                                    @if ($value->id == $subMenu->parent_id)
+                                        <li><a href="{{ route('home.category', $subMenu->slug) }}" id="list-submenu">{{ $subMenu->name }}</a></li>
+                                    @endif                        
+                                @endforeach
+                            </ul>
+                        @endif
+                    </li>
                 @endforeach
                 <li><a href="{{ route('contact.index') }}">Liên Hệ</a></li>
                 <li>
@@ -55,9 +55,9 @@
                     <img class="user-image" style="height: 20px;margin: 27px;" src="{{ Auth::guard('customer')->user()->avatar }}" alt="">
                     <span class="user-name">{{ Auth::guard('customer')->user()->name }}</span>
                     <ul>
-                        <li><a href="#"><i class="icon_clock_alt"></i>Thông Tin</a></li>
-                        <li><a href="{{ route('customerpost.select') }}"><i class="icon_clock_alt"></i> Đăng bài</a></li>
-                        <li><a href="#" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"><i class="icon_clock_alt"></i> Logout</a></li>
+                        <li><a href="#" id="profile"><i class="icon_clock_alt" ></i>Thông Tin</a></li>
+                        <li><a href="{{ route('customerpost.get') }}" id="profile"><i class="icon_clock_alt"></i> Đăng bài</a></li>
+                        <li><a href="#" id="profile" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"><i class="icon_clock_alt"></i> Logout</a></li>
                         <form id="frm-logout" action="{{ route('customer.logout') }}" method="POST" style="display: none;">
                             {{ csrf_field() }}
                         </form>
@@ -66,17 +66,28 @@
                     <a href="{{ route('login.provider', 'google') }}">{{ __('G-SUITE LOGIN') }}</a>
                     @endif
                 </li>
+                <li>
+                    <div class="" id="search-home" style="">
+                        <form  action="{{ route('search.posthome') }}" method="GET" role="form">            
+                            <div class="form-group" style="position: relative;">
+                               
+                                <input style="width: 300px;padding: 15px;float: left;" type="text" class="form-control" name="search" placeholder="search"><button id="submit" type="submit" class="btn btn-primary">Tìm</button>
+                            </div>                          
+                        </form>
+                    </div>
+                </li>
 
-                <!-- <form id="search" action="{{ route('search.posthome') }}" method="GET" role="form">            
-                    <div class="form-group">
-                        <input type="text" class="form-control" name="title" placeholder="search"><button type="submit" class="btn btn-primary">Submit</button>
-                    </div>                     
-                    
-                </form> -->
+                <!-- <div style="width: 2%; margin-top: 26px;"><img src="{{ asset('frontend/images/search.jpg') }}" alt=""></div>
+                 -->
 
             </ul>
-
+            
+            <div class="ss-navbar-toggle-search">
+                <svg style="margin-right: -23px; margin-top: 7px;"  width="20"height="20" class="search-icon" role="img" viewBox="2 9 20 5" focusable="false" aria-label="Search">
+                <path class="search-icon-path" d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+            </div>
         </div>
+       
         <div class="ss-navbar-toggle">
             <svg viewBox="0 0 24 24" width="24" height="24">
                 <rect x="0" y="0" width="4" height="4" stroke-width="0"></rect>
@@ -90,12 +101,19 @@
                 <rect x="10" y="20" width="4" height="4" stroke-width="0" class="icon-animate4"></rect>
             </svg>
         </div>
-   
     </nav>
 </header>
+<script src="{{ asset('frontend/vendor/jquery-3.2.1.min.js') }}"></script>
 
-
-
+<script>
+    $(document).ready(function() {
        
+        $('.ss-navbar-toggle-search').click(function() {
+            $('#search-home').toggle();           
+        });
+        
+            
+    })
+</script>
 
-     
+

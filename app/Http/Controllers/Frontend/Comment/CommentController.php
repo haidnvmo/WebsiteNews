@@ -25,14 +25,14 @@ class CommentController extends Controller
             abort(404);
         }
         if(!Auth::guard('customer')->user()){
-            return response()->json(['error' => 'Xin vui lòng đăng nhập để  bình luận ']);
+            return response()->json(['error' => 'Đăng nhập để  bình luận ']);
         }
         $addComment = $this->comment->create($request->validated());
         $addComment->id_posts = $request->id_posts;
         $addComment->id_customer = Auth::guard('customer')->user()->id;    
         $addComment->save();
 
-        $getComment = Comment::with('customer')->where('id_posts', $request->id_posts)->orderBy('created_at', 'DESc' )->take(5)->paginate(5);
+        $getComment = Comment::with('customer')->where('id_posts', $request->id_posts)->orderBy('created_at', 'DESc' )->paginate(5);
         $view = view('frontend.detail.commentList',compact('getComment'))->render();
         return response()->json(['html'=>$view]);
         

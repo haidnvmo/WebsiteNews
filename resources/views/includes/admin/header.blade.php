@@ -4,7 +4,7 @@
   </div>
 
   <!--logo start-->
-  <a href="index.html" class="logo"> <span class="lite">Admin</span></a>
+  <a href="{{ route('post.select') }}" class="logo"> <span class="lite">Admin</span></a>
   <!--logo end-->
 
  
@@ -27,7 +27,7 @@
           </span>
           <span class="username">
             @if (Auth::user())
-            {{ Auth::user()->name }}
+            <span><i class="fa fa-user" aria-hidden="true"></i>  {{ Auth::user()->name }}</span>
             @endif
           </span>
           <b class="caret"></b>
@@ -35,7 +35,7 @@
         <ul class="dropdown-menu extended logout">
           <div class="log-arrow-up"></div>
           <li>
-            <a href="{{ route('user.changepassword') }}"><i class="icon_mail_alt"></i> ChangePassword</a>
+            <a href="{{ route('user.changepassword') }}"><i class="fa fa-key" aria-hidden="true"></i> ChangePassword</a>
           </li>
           <li>
           <li><a href="#" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"><i class="icon_clock_alt"></i> Logout</a></li>

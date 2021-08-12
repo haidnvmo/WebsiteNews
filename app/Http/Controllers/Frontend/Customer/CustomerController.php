@@ -25,15 +25,16 @@ class CustomerController extends Controller
     {
 
         return  Socialite::driver($driver)->redirect();
-
         //$this->registerGoogleLoginUser($user);
 
         return redirect()->route('home.index');
     }
     public function callback($provider)
     {
+        
         $getInfo = Socialite::driver($provider)->user();
         $user = $this->registerGoogleLoginUser($getInfo, $provider);
+        
 
         $data = [
             'email' => $user->email,

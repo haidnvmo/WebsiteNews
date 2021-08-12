@@ -13,7 +13,7 @@
 </style>
 <main id="news-wrapper">
     <div class="container-master">
-        <h1 class="news-title">{{ $category->name }}</h1>
+        <h1 class="news-title" style="margin-left: 28px;">{{ $category->name }}</h1>
         <div class="news-head">
             <div class="news-head_left">
                 @if ($posts)
@@ -28,7 +28,8 @@
                                 <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="float: left;">
                                     <div class="item-body" style="padding-top:0px;">
                                         <h3 class="item-title"><a href="{{ route('home.detail',$value->slug) }}" rel="follow" >{{ $value->title }}</a></h3>
-                                        <p class="des-post">{{ $value->description }}</p>
+                                        <p class="des-post">{{ $value->description }}</p><br>
+                                        </h4><br><span style="font-size:10px;">{{ $value->created_at }}  | {{ $value->count_view }} Lượt xem</span><br><br>
                                         <h4 class="desc"></h4>
                                     </div>
                                 </div>
@@ -42,6 +43,11 @@
                     <h2 class="box-title">Bài viết nổi bật</h2>
                     <div class="box-content">
                         @foreach ($getPostHighLights as $value)
+                        <div class="item" >
+                            <div class="item-img" style="margin-bottom: -165px;;">
+                                <a href="{{ route('home.detail', $value->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$value->image) }}" alt="" style="height: 50%;"></a>
+                            </div>
+                        </div>
                         <ul>
                             <li><a href="{{ route('home.detail',$value->slug) }}" rel="follow" title="Văn phòng mở - kẻ thù của các CEO">{{ $value->title }} </a></li>
                         </ul>
@@ -53,6 +59,11 @@
                     <h2 class="box-title">Bài viết mới nhất</h2>
                     <div class="box-content">
                         @foreach ($getPostNews as $value)
+                        <div class="item" >
+                            <div class="item-img" style="margin-bottom: -165px;;">
+                                <a href="{{ route('home.detail', $value->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$value->image) }}" alt="" style="height: 50%;"></a>
+                            </div>
+                        </div>
                         <ul>
                             <li><a href="{{ route('home.detail',$value->slug) }}" rel="follow" title="WHEN YOU SUSTAIN YOUR RESOURCES, THEY SUSTAIN YOU.">{{ $value->title }}</a></li>
 

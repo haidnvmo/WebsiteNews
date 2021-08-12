@@ -27,8 +27,7 @@ class ContactController extends Controller
     public function create(StoreContactRequest $request)
     {
         $newsContact = $this->contact->create($request->validated());
-        dispatch(New SendEmailContact($newsContact))->delay(Carbon::now()->addMinutes(1));
-        
+        dispatch(New SendEmailContact($newsContact))->delay(Carbon::now()->addMinutes(1));      
         return redirect()->route('contact.index')->with('status', lang::get('messages.sendmail'));
     }
 }

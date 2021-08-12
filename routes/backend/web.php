@@ -31,6 +31,19 @@ Route::group(['middleware' => 'admin'], function () {
         Route::patch('/update', 'App\Http\Controllers\Backend\SubCategory\SubCategoryController@update')->name('update');
         Route::get('/delete{id}', 'App\Http\Controllers\Backend\SubCategory\SubCategoryController@delete')->name('delete');
     });
+    Route::prefix('userpost')->name('userpost.')->group(function () {
+        Route::get('/', 'App\Http\Controllers\Backend\CustomerPost\CustomerPostController@index')->name('index');
+        Route::get('/search', 'App\Http\Controllers\Backend\CustomerPost\CustomerPostController@search')->name('search');
+        Route::get('/table', 'App\Http\Controllers\Backend\CustomerPost\CustomerPostController@select')->name('select');
+        Route::get('/edit/{id}', 'App\Http\Controllers\Backend\CustomerPost\CustomerPostController@edit')->name('edit');
+        Route::patch('/update', 'App\Http\Controllers\Backend\CustomerPost\CustomerPostController@update')->name('update');
+    });
+    Route::prefix('customer')->name('customer.')->group(function () {
+        Route::get('/', 'App\Http\Controllers\Backend\Customer\CustomerController@index')->name('index');
+        Route::get('/table', 'App\Http\Controllers\Backend\Customer\CustomerController@select')->name('select');
+        Route::get('/delete{id}', 'App\Http\Controllers\Backend\Customer\CustomerController@delete')->name('delete');
+  
+    });
     Route::prefix('home')->name('home.')->group(function () {
         Route::get('/', 'App\Http\Controllers\Backend\Home\HomeController@home')->name('index');
     });

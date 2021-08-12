@@ -15,9 +15,11 @@ class MenuComposer {
      */
     public function compose(View $view)
     {
-        $categories = Category::with('subcategories')->get();
+        $categories = Category::whereNull('parent_id')->get();
+        $subCategories = Category::where('parent_id', '<>', null)->get();
+        
         $view->with(compact(
-            'categories'
+            'categories','subCategories'
         ));
     }
 }

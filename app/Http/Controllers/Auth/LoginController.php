@@ -41,7 +41,6 @@ class LoginController extends Controller
         $user = $request->validated();
         $user['name'] = 'admin';
         if (Auth::attempt($user)) {
-
             return redirect()->route('post.select')->with('status', lang::get('messages.succssefull'));
         } else {
             return redirect()->route('login.index')->with('status', lang::get('messages.error_password'));

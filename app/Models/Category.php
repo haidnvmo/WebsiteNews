@@ -14,7 +14,7 @@ class Category extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'slug',
+        'name', 'slug', 'parent_id',
     ];
 
     public function posts()
