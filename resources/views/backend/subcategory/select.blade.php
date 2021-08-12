@@ -6,29 +6,10 @@
     <section id="container" class="">
         <!--header start-->
         <!--header end-->
-
-        <!--sidebar start-->
         <aside>
-            <div id="sidebar" class="nav-collapse ">
-                <!-- sidebar menu start-->
-                <ul class="sidebar-menu">
-                    <li class="sub-menu">
-                        <a href="javascript:;" class="">
-                            <i class="icon_table"></i>
-                            <span>Tables</span>
-                            <span class="menu-arrow arrow_carrot-right"></span>
-                        </a>
-                        <ul class="sub">
-                            <li><a class="active" href="{{ route('category.select') }}">Category</a></li>
-                            <li><a class="active" href="{{ route('post.select') }}">Post</a></li>
-                            <li><a class="active" href="{{ route('subcategory.select') }}">Sub Category</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- sidebar menu end-->
-            </div>
+        <!--sidebar start-->
+        @include('backend.table.index')
         </aside>
-
         <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
@@ -59,9 +40,8 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>slug</th>
                                         <th>Category_id</th>
-                                        <th>Action</th>
+                                        <th style="padding-left:58px;">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody id="list-subcategory">

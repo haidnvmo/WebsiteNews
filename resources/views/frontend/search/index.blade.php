@@ -9,31 +9,26 @@
 
                     <div id="list-comment">
                         @foreach ($searchPostHome as $value)
-                        <span style="color:red; font-size:20px">{{ $value->categories->name }}</span><br>
-                        <div class="item-img"><br>
-                            <a href="{{ route('home.detail', $value->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$value->image) }}" alt=""></a> <br>
-                        </div>
-                        <br>
-                        <div class="item-body">
-                            <h3 class="item-title"><a href="{{ route('home.detail', $value->slug) }}" title="">{{ $value->title  }}</a></h3>
-                            <h4 class="desc">
-                                {{ $value->description }}
-                            </h4><br><br>
-                        </div>        
+                        <div class="item" style="min-height: 230px;">
+                            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="float: left;">
+                                    <div class="item-img">
+                                        <a href="{{ route('home.detail',$value->slug) }}" rel="follow"  class="img"><img src="{{ asset('storage/avatars/'.$value->image) }}" alt="" style="max-height:194px;width: 100%;object-fit: cover;"></a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" style="float: left;">
+                                    <div class="item-body" style="padding-top:0px;">
+                                        <h3 class="item-title"><a href="{{ route('home.detail',$value->slug) }}" rel="follow" >{{ $value->title }}</a></h3>
+                                        <p class="des-post">{{ $value->description }}</p><br>
+                                        </h4><br><span style="font-size:10px;">{{ $value->created_at }}|{{ $value->count_view }}</span><br><br>
+                                        <h4 class="desc"></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>      
                         @endforeach
-                    </div>
-                    <span class="ghim-title">Thông tin liên hệ:</span>
-                    <div class="name">AFA Design - Thiết kế nội thất</div>
-                    <ul>
-                        <li><span>Hotline:</span> 0915 075 858</li>
-                        <li><span>Email:</span> info@afa.com.vn</li>
-                        <li><span>Address:</span> 27 Trần Duy Hưng, Trung Hòa, Cầu Giấy, Hà Nội.</li>
-                    </ul>
-
                 </div>
-
             </div>
-
         </div>
     </section>
 </main>

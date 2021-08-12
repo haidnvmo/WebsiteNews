@@ -79,7 +79,7 @@
                                                                                         #highlight-slider .highlight-item.item-style-2 .h-box-text .btn-view-more:hover span,
                                                                                         #service-wrapper .service-list .box-item .item-body .btn-view-more:hover span,
                                                                                         #contact-wrapper .box-contact .contact-form .btn-send .btn-submit:hover span {
-                                                                                            color: #b;
+                                                                                            color: white;
                                                                                         }
                                                                                         
                                                                                         #service-slider .service-item-child .box-text .btn-view-more:hover:after,
@@ -5409,7 +5409,7 @@
                                                                                             left: 50%;
                                                                                             -webkit-transform: translateX(-50%);
                                                                                             transform: translateX(-50%);
-                                                                                            width: calc(100% - 30px);
+                                                                                            /* width: calc(100% - 30px); */
                                                                                             height: 1px;
                                                                                             background: #3B404C;
                                                                                         }

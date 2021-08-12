@@ -7,7 +7,7 @@
     {{ csrf_field() }}
     <div class="container">
         @include('components.alert')
-        <p>Xin hãy nhập nội dung bài đăng</p>
+        
         <hr>
         <div class="form-group">
             <label for="exampleInputEmail1"><b>Title</b></label>
@@ -32,7 +32,7 @@
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1" class="text-uppercase">Content<sup>*</sup></label>
-            <textarea name='content' value="{{ $editCustomerPost->content }}" ></textarea>
+            <textarea name='content' value="" >{{ $editCustomerPost->content }}</textarea>
             <script>
                 CKEDITOR.replace('content',);
             </script>

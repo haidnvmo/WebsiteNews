@@ -1,6 +1,6 @@
 @if($getComment)
     @foreach ($getComment as $value)
-        @if ($value->customer->count() > 0)
+       
             <div class="be-comment">
                 <div class="be-img-comment">
                     <a href="blog-detail-2.html">
@@ -21,8 +21,7 @@
                         {{ $value->content }}
                     </p>
                 </div>
-            </div>
-        @endif
+            </div>  
     @endforeach
-    <span style="text-align: center;">{{ $getComment->links() }} </span>
+    
 @endif

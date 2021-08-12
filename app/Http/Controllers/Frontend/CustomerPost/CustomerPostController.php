@@ -15,9 +15,13 @@ use Auth;
 
 class CustomerPostController extends Controller
 {
- 
+
     public function index()
     {
+        if (!Auth::guard('customer')->user())
+        {
+            abort(404);
+        }
         $getCategory = Category::get();
         return view('frontend.customerpost.index', compact('getCategory'));
     }
@@ -43,26 +47,34 @@ class CustomerPostController extends Controller
         $newsCustomerPost->status = $request->status;
         $newsCustomerPost->id_customer = Auth::guard('customer')->user()->id;
         $newsCustomerPost->save();
+
         return redirect()->route('home.index');
     }
     public function select(Request $request)
     {
+        if(!Auth::guard('customer')->user())           
+        {
+            abort(404);
+        }
         $getPostCustomer = Post::where('id_customer', Auth::guard('customer')->user()->id)->get();
-
         return view('frontend.customerpost.getpostcustomer', compact('getPostCustomer'));
+       
     }
 
     public function edit(Request $request)
     {
-        $getCategory = Category::get();
-
-        $editCustomerPost = Post::where('id', '=', $request->id)->first();
-        if(!$editCustomerPost) {
+        if(!Auth::guard('customer')->user())
+        {
             abort(404);
         }
-        return view('frontend.customerpost.update', compact('editCustomerPost','getCategory'));
+        $getCategory = Category::get();
+        $editCustomerPost = Post::where('id', '=', $request->id)->first();
+        if (!$editCustomerPost) {
+            abort(404);
+        }
+        return view('frontend.customerpost.update', compact('editCustomerPost', 'getCategory'));
     }
-    
+
     public function update(StorePostRequest $request)
     {
         $data = $request->validated();
@@ -80,20 +92,18 @@ class CustomerPostController extends Controller
             $data['image'] = $fileNameToStore;
         }
         $newsCustomerPost = Post::create($data);
-       
+
         $newsCustomerPost->customer_status = $request->customer_status;
         $newsCustomerPost->status = $request->status;
         $newsCustomerPost->id_customer = Auth::guard('customer')->user()->id;
         $newsCustomerPost->where('id', '=', $request->id);
         $newsCustomerPost->save();
-       
         return redirect()->route('customerpost.select');
-
     }
     public function delete(Request $request)
     {
-        $delete = Post::where('id', $request->id)->first();
+        $delete = Post::where('id', '=', $request->id)->first();
         $delete->delete();
-        return redirect()->route('customerpost.select');
+        return redirect()->route('customerpost.get');
     }
 }

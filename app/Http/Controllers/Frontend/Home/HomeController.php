@@ -17,27 +17,31 @@ class HomeController extends Controller
     {
 
         $getPost = Post::where('status', '=', '1')->orderBy('created_at', 'DESC')->take(1)->first();
-
-        $getPostData = Post::with('categories')->whereNotIn('id', [$getPost->id])->where('status', '=', '1')->orderBy('created_at', 'DESC')->simplePaginate(4);
+        $getPostData = [];
+        if($getPost){
+            $getPostData = Post::with('categories')->whereNotIn('id', [$getPost->id])->where('status', '=', '1')->orderBy('created_at', 'DESC')->simplePaginate(4);
+        }
         $getPostHighLights = Post::orderBy('count_view', 'DESC')->take(3)->get();
         $getPostNews = Post::where('sort', Post::POST_NEWS)->orwhere('status', '=', '1')->orderBy('created_at', 'DESC')->take(3)->get();
+        
         $getPostHotNews = Post::getNewsOfCategory(Post::POST_HOTNEWS)->first();
+        $getPostHotNews1 = [];
         if($getPostHotNews){
             $getPostHotNews1 = Post::where('id_category', Post::POST_HOTNEWS)->whereNotIn('id', [$getPostHotNews->id])->orderBy('created_at', 'DESC')->take(3)->get();
-        }
-        
-
-        $getPostSport = Post::getNewsOfCategory(Post::POST_SPORT)->where('status', '=', '1')->first();
+        }       
+        $getPostSport = Post::getNewsOfCategory(Post::POST_SPORT)->where('status', '=', '1')->first();     
         if($getPostSport){
             $getPostSport1 = Post::where('id_category', Post::POST_SPORT)->orWhere('status', '=', '1')->whereNotIn('id', [$getPostSport->id])->orderBy('created_at', 'DESC')->take(3)->get();
-
+        } else {
+            $getPostSport1 = [];
         }
-
         $getPostCultural = Post::getNewsOfCategory(Post::POST_CULTURAL)->first();
+        $getPostCultural1 = [];
         if($getPostCultural){
             $getPostCultural1 = Post::where('id_category', Post::POST_CULTURAL)->whereNotIn('id', [$getPostCultural->id])->orderBy('created_at', 'DESC')->take(3)->get();
         }
         $getPostProject = Post::getNewsOfCategory(Post::POST_PROJECT)->first();
+        $getPostProject1 = [];
         if($getPostProject){
             $getPostProject1 = Post::where('id_category', Post::POST_PROJECT)->whereNotIn('id', [$getPostProject->id])->orderBy('created_at', 'DESC')->take(3)->get();
         }
@@ -54,19 +58,13 @@ class HomeController extends Controller
         $getDetail->count_view += 1;
         $getDetail->save();
 
-        $getPostHighLights1 = Post::where('sort', Post::POST_HIGHLIGHTS)->orderBy('created_at', 'DESC')->first();
-        if($getPostHighLights1){
-            $getPostHighLights = Post::whereNotIn('id', [$getPostHighLights1->id])->orderBy('count_view', 'DESC')->take(3)->get();
-        }
-        $getPostNews1 = Post::where('sort', Post::POST_NEWS)->orderBy('created_at', 'DESC')->first();
-        if($getPostNews1){
-            $getPostNews = Post::where('sort', '=', Post::POST_NEWS)->whereNotIn('id', [$getPostNews1->id])->take(3)->get();
-        }
-       
+        $getPostHighLights = Post::orderBy('count_view', 'DESC')->take(3)->get();
+        $getPostNews = Post::orderBy('created_at', 'DESC')->take(3)->get();
+
         $getPostComment = Post::where('slug', $request->slug)->first();
         $getComment = Comment::with('customer')->where('id_posts', $getPostComment->id)->orderBy('created_at', 'DESc' )->take(5)->paginate(5);
 
-        return view('frontend.detail.index', compact(['getDetail','getPostHighLights','getComment', 'getPostNews','getPostNews1', 'getPostHighLights1']));
+        return view('frontend.detail.index', compact(['getDetail','getPostHighLights','getComment', 'getPostNews']));
     }
     public function category(Request $request)
     {
@@ -75,9 +73,8 @@ class HomeController extends Controller
             abort(404);
         }
         $posts = Post::where('id_category', $category->id)->orderby('created_at', 'DESC')->get();
-        
-        $getPostHighLights = Post::where('sort', Post::POST_HIGHLIGHTS)->orderBy('created_at', 'DESC')->take('5')->get();
-        $getPostNews = Post::where('sort', '=', Post::POST_NEWS)->orderBy('created_at', 'DESC')->take(5)->get();
-        return view('frontend.category.in', compact('posts', 'category','getPostHighLights','getPostNews'));
+        $getPostHighLights = Post::orderBy('count_view', 'DESC')->take(3)->get();
+        $getPostNews = Post::orderBy('created_at', 'DESC')->take(3)->get();
+        return view('frontend.category.in', compact('posts', 'category','getPostHighLights','getPostNews', 'getPostHighLights'));
     }
 }

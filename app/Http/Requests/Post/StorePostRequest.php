@@ -27,9 +27,9 @@ class StorePostRequest extends FormRequest {
             'slug' => 'required|max:255',
             'content'    => 'required',
             'description' => 'required',
-            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048|nullable',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|',
             'id_category' => 'required',
-            'sort' => 'nullable'
+            'sort' => 'nullable',
         ];
         
     }
@@ -46,6 +46,7 @@ class StorePostRequest extends FormRequest {
             'image.image' => 'xin vui lòng choose image',
             'image.mimes' => 'bạn chỉ được nhap ieg ng jg gif svg',
             'image.max' => 'image không được quá 2048MB',
+            'image.required' => 'Xin vui lòng nhập image',
         ];
     }
 }

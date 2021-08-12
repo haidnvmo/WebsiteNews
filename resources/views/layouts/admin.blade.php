@@ -45,6 +45,7 @@
   <!-- Custom styles -->
   <link href="{{ asset('backend/css/style.css') }}" rel="stylesheet">
   <link href="{{ asset('backend/css/style-responsive.css') }}" rel="stylesheet" />
+  <link rel="stylesheet" href="{{ asset('frontend/vendor/font-awesome-4.7.0/css/font-awesome.css') }}">
  
   
   

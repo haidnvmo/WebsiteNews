@@ -33,6 +33,8 @@ class SendEmailContact implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to($this->contact->email)->send(new SendMailContact($this->contact));
+        
+       Mail::to($this->contact->email)->send(new SendMailContact($this->contact));
+        
     }
 }

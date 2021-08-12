@@ -20,23 +20,20 @@ class CategoryController extends Controller
 
     public function index()
     {
-        return view('backend.category.create');
+        $category = Category::whereNull('parent_id')->get();
+
+        return view('backend.category.create', compact('category'));
     }
 
     public function create(StoreCategoryRequest $request)
-    {
-        
-        $NewCategory = $this->category->create($request->validated());
-        // if(!$NewCategory){
-        //     return  response()->json(['error' => 'vui long nhap name']);
-        // }
-        //     return  response()->json(['data' => $NewCategory]);      
+    {     
+        $NewCategory = $this->category->create($request->validated());     
         return redirect()->route('category.select')->with('status', lang::get('messages,succssefullCategory'));
     }
 
     public function select(Request $request)
     {
-        $getCategory = $this->category->get();
+        $getCategory = $this->category->all();
         if ($request->ajax()) {
             $getCategory = Category::where('name', 'like', '%'.$request->name.'%')->get();
     		$view = view('backend.category.ajax.data',compact('getCategory'))->render();
@@ -47,8 +44,9 @@ class CategoryController extends Controller
 
     public function edit(Request $request)
     {
-        $editCategory = $this->category->find($request->id)->first();
-        return view('backend.category.update', compact('editCategory'));
+        $getEditCategory = $this->category->all();
+        $editCategory = Category::where('id', $request->id)->first();
+        return view('backend.category.update', compact('editCategory','getEditCategory'));
     }
 
     public function update(StoreCategoryRequest $request)

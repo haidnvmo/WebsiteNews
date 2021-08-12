@@ -21,23 +21,10 @@
                      <option value="">Chọn chuyên mục</option>
                      @foreach ($categories as $value)
                      <option value="{{ $value->id }}">{{ $value->name }}</option>
-                     @if ($value->subCategories)
-                     @foreach ($value->subCategories as $subcategory)
-                     <option value="">{{ $subcategory->name }}</option>
-                     @endforeach
-                     @endif                                     
+                                                        
                      @endforeach
                   </select>
                </div>
-               <div class="form-group">
-                  <label for="exampleInputPassword1" class="text-uppercase">sort<sup>*</sup></label>
-                  <select name="sort" id="">
-                     <option value="">Sắp xếp Tin tức</option>
-                     <option value="1">Nổi bật</option>
-                     <option value="2">Mới nhất</option>
-                  </select>
-               </div>
-
                <div class="form-group">
                   <label for="exampleInputPassword1" class="text-uppercase">Slug <sup>*</sup></label>
                   <input type="text" id="slug" name='slug' class="form-control" placeholder="">

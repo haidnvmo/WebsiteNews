@@ -27,6 +27,16 @@
                         @enderror
                         <span id="error-slug"></span>
                     </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1" class="text-uppercase">Parent<sup>*</sup></label>
+                        <select name="parent_id" id="">
+                            @foreach ($category as $value)
+                                <option value="">Chọn chuyên mục</option>
+                                <option value="{{ $value->id }}">{{ $value->name }}</option>
+                            @endforeach                      
+                        </select>
+                    </div>
                     <div class="form-check col-md-offset-4">
                         <button type="submit" data-url="" id="createCategory" class="btn btn-primary">Thêm</button>
                     </div>
@@ -36,7 +46,7 @@
 @endsection
 <script src="{{ asset('backend/js/jquery-1.8.3.min.js') }}"></script>
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
 <script language="javascript">
     function ChangeToSlug() {
         var name, slug;

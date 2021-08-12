@@ -233,3 +233,12 @@
         background-color: cadetblue;
         border-color: #007bff;
     }
+    
+    #add-post {
+        margin-left: 635px;
+    }
+    
+    #add-post a {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.726);
+    }

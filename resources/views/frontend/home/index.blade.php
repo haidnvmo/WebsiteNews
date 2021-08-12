@@ -47,7 +47,8 @@
                 <div class="box-item">
                     <div class="item">
                         @foreach ($getPostData as $value)
-                            <span style="color:red; font-size:20px">{{ $value->categories->name }}</span><br>
+                        
+                            <span style="color:#ffa500; font-size:20px">{{ $value->categories->name }}</span><br>
                             <div class="item-img"><br>
                                 <a href="{{ route('home.detail', $value->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$value->image) }}" alt=""></a> <br>
                             </div>
@@ -56,13 +57,12 @@
                                 <h3 class="item-title"><a href="{{ route('home.detail', $value->slug) }}" title="">{{ $value->title  }}</a></h3>
                                 <h4 class="desc">
                                     {{ $value->description }}
-                                </h4><br><br>
+                                </h4><br><span style="font-size:10px;">{{ $value->created_at }} | {{ $value->count_view }} Lượt xem</span><br><br>          
                             </div>
+                            
                         @endforeach
                     </div>
                 </div>
-
-                <span style="text-align: center;">{{ $getPostData->links() }}</span>
             </div>
             <div class="news-list_right">
                 <div class="list-item">
@@ -84,6 +84,7 @@
                         <div class="list-content_right">
                             <ul>
                                 @foreach ($getPostHotNews1 as $value)
+                                <span style="font-size:10px;">{{ $value->created_at }}</span>
                                 <li><a href="{{ route('home.detail',$value->slug) }}" title="">{{ $value->title }}</a></li>
                                 @endforeach
                             </ul>
@@ -93,6 +94,7 @@
                 </div>
                 <div class="list-item">
                     @if($getPostSport)
+                    
                     <h3 class="list-title"><a href="{{ route('home.detail',$getPostSport->slug) }}" title="">{{ $getPostSport->categories->name }}</a></h3>
                     <div class="list-content">
                         <div class="list-content_left">
@@ -107,19 +109,20 @@
                             </div>
                         </div>
                         <div class="list-content_right">
-
-                            <ul>
-                                @foreach ($getPostSport1 as $value)
+                            @foreach ($getPostSport1 as $value)
+                            <span style="font-size:10px;">{{ $value->created_at }}</span>
+                            <ul>                              
                                 <li><a href="{{ route('home.detail',$value->slug) }}" title="">{{ $value->title }}</a></li>
-                                @endforeach
+                                
                             </ul>
-
+                            @endforeach
                         </div>
                         @endif
                     </div>
                 </div>
                 <div class="list-item">
                     @if($getPostCultural)
+                    
                     <h3 class="list-title"><a href="{{ route('home.detail',$getPostCultural->slug) }}" title="">{{ $getPostCultural->categories->name }}</a></h3>
                     <div class="list-content">
                         <div class="list-content_left">
@@ -178,11 +181,11 @@
 </main>
 <div class="action-fixed">
     <ul>
-        <li><a href="" title=""><img src="images/icon/s5.png" alt=""></a></li>
-        <li><a href="" title=""><img src="images/icon/s4.png" alt=""></a></li>
-        <li><a href="" title=""><img src="images/icon/s3.png" alt=""></a></li>
-        <li><a href="" title=""><img src="images/icon/s2.png" alt=""></a></li>
-        <li><a href="" title=""><img src="images/icon/s1.png" alt=""></a></li>
+        <li><a href="" title=""><img src="{{ asset('frontend/images/icon/s5.png') }}" alt=""></a></li>
+        <li><a href="" title=""><img src="{{ asset('frontend/images/icon/s4.png') }}" alt=""></a></li>
+        <li><a href="" title=""><img src="{{ asset('frontend/images/icon/s3.png') }}" alt=""></a></li>
+        <li><a href="https://chat.zalo.me/?null" title=""><img src="{{ asset('frontend/images/icon/s2.png') }}" alt=""></a></li>
+        <li><a href="https://www.facebook.com/sua.hai.79/" title=""><img src="{{ asset('frontend/images/icon/s1.png') }}" alt=""></a></li>
     </ul>
 </div>
 

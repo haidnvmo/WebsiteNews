@@ -46,7 +46,7 @@ class PostController extends Controller
     public function select(Request $request)
     {
         
-        $getAllPost = Post::with('categories')->get();
+        $getAllPost = Post::sortable()->with('categories')->orderBy('created_at', 'DESC')->paginate(10);
 
         if ($request->ajax()) {
             $getAllPost = Post::where('title', 'like', '%'.$request->title.'%')->get();
@@ -101,11 +101,9 @@ class PostController extends Controller
     }
 
     public function search(Request $request)
-    {
-        
-        $searchPostHome = Post::with('categories')->where('title', 'LIKE', "%$request->title%")->get();
-        
+    {      
+        $searchPostHome = Post::with('categories')
+        ->where('title', 'LIKE', "%$request->search%")->get();
         return view('frontend.search.index',compact('searchPostHome'));
-
     }
 }
