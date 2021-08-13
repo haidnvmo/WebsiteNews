@@ -31,8 +31,9 @@
                     <div class="form-group">
                         <label for="exampleInputPassword1" class="text-uppercase">Parent<sup>*</sup></label>
                         <select name="parent_id" id="">
+                        <option value="">Chọn chuyên mục</option>
                             @foreach ($category as $value)
-                                <option value="">Chọn chuyên mục</option>
+                                
                                 <option value="{{ $value->id }}">{{ $value->name }}</option>
                             @endforeach                      
                         </select>

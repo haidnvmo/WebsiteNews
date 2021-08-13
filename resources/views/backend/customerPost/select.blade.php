@@ -44,7 +44,8 @@
                                         <th>Title</th>
                                         <th>Category</th>
                                         <th>Status</th>
-                                        <th>Image</th>                                       
+                                        <th>Image</th>
+                                        <th>edit</th>                                    
                                     </tr>
                                 </thead>
                                 <tbody id="list-customerpost">

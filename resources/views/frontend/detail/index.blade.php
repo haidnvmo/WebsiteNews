@@ -27,17 +27,8 @@
                         </div>
                         <div id="list-comment">
                             @include('frontend.detail.commentList')
-                        </div>
-                        <span class="ghim-title">Thông tin liên hệ:</span>
-                        <div class="name">AFA Design - Thiết kế nội thất</div>
-                        <ul>
-                            <li><span>Hotline:</span> 0915 075 858</li>
-                            <li><span>Email:</span> info@afa.com.vn</li>
-                            <li><span>Address:</span> 27 Trần Duy Hưng, Trung Hòa, Cầu Giấy, Hà Nội.</li>
-                        </ul>
-
+                        </div>                  
                     </div>
-
                 </div>
                 <div class="news-detail_right">
                     <h2 class="title">Bài viết nổi bật</h2>
@@ -47,7 +38,7 @@
                         <div class="item">
 
                             <div class="item-img">
-                                <a href="{{ route('home.detail', $value->slug) }}" title="" class="imgc"><img src="{{ asset('storage/avatars/'.$value->image) }}" alt=""></a>
+                                <a href="{{ route('home.detail', $value->slug) }}" title="" class="imgc" ><img src="{{ asset('storage/avatars/'.$value->image) }}" alt=""></a>
                             </div>
                         </div>
 

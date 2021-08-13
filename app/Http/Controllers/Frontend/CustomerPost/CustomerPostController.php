@@ -48,7 +48,7 @@ class CustomerPostController extends Controller
         $newsCustomerPost->id_customer = Auth::guard('customer')->user()->id;
         $newsCustomerPost->save();
 
-        return redirect()->route('home.index');
+        return redirect()->route('customerpost.get');
     }
     public function select(Request $request)
     {

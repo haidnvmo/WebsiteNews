@@ -21,7 +21,7 @@
             <tr>
                 <td>{{ $value->title }}</td>
                 <td>{{ $value->status === 1 ? 'Đã được đăng' : 'Chờ xét duyệt' }}</td>
-                <td ><a href="{{ route('customerpost.edit', $value->id) }}" style="color:red;"><button type="button" class="btn btn-success">Edit</button></a>  <a href="{{ route('customerpost.delete', $value->id) }}" style="color:red;"><button type="button" class="btn btn-primary">Delete</button></a></td>
+                <td ><a href="{{ route('customerpost.edit', $value->id) }}" style="margin-right: -40px;"><button type="button" class="btn btn-success">Edit</button></a>  <a href="{{ route('customerpost.delete', $value->id) }}" style="color:red;"><button type="button" class="btn btn-primary">Delete</button></a></td>
                 
             </tr>
             @endforeach
