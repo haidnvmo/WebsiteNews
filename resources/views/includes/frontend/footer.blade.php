@@ -34,15 +34,14 @@
                     <br> <br>
                 </div>
                 <div class="col-12 col-md-4">
-                    <div class="foot-title">AfA Design </div>
+                    <div class="foot-title">VMO </div>
                     <div class="foot-content">
                         <ul class="info">
-                            <li><span>Địa chỉ:</span>P2009, Tòa nhà Eurowindown, 27 Trần Duy Hưng, Cầu Giấy, Hà Nội</li>
-                            <li><span>Hotline:</span><a href="tel:+84 (0) 915-075-858" title="">+84 (0) 915-075-858</a></li>
+                            <li><span>Địa chỉ:</span> Tầng 8, Tòa nhà IDMC, số 18 đường Tôn Thất Thuyết, Quận Cầu Giấy, TP. Hà Nội.</li>
+                            <li><span>Hotline:</span><a href="tel:+84 (0) 915-075-858" title=""> 024 3312 0103</a></li>
                             <li><span>Tel:</span><a href="tel:+84 (024) 3557-1385" title="">+84 (024) 3557-1385</a></li>
-                            <li><span>Email:</span><a href="mailto:info@afa.com.vn" title="">info@afa.com.vn</a></li>
-                            <li><span>Web:</span><a href="https://afa.com.vn/" title="">https://afa.com.vn/</a></li>
-                            <li><span>Fanpage:</span><a href="https://www.facebook.com/afa.design.vietnam/" title="">https://www.facebook.com/afa.design.vietnam/</a></li>
+                            <li><span>Email:</span><a href="mailto:info@afa.com.vn" title="">VMO@gmail.com</a></li>
+                            <li><span>Web:</span><a href="https://www.vmogroup.com/" title="">https://www.vmogroup.com/</a></li>
                         </ul>
                     </div>
                 </div>

@@ -29,7 +29,7 @@
                                     <div class="item-body" style="padding-top:0px;">
                                         <h3 class="item-title"><a href="{{ route('home.detail',$value->slug) }}" rel="follow" >{{ $value->title }}</a></h3>
                                         <p class="des-post">{{ $value->description }}</p><br>
-                                        </h4><br><span style="font-size:10px;">{{ $value->created_at }}  | {{ $value->count_view }} Lượt xem</span><br><br>
+                                        </h4><br><span style="font-size:15px;">{{ $value->created_at }}  | {{ $value->count_view }} Lượt xem</span><br><br>
                                         <h4 class="desc"></h4>
                                     </div>
                                 </div>

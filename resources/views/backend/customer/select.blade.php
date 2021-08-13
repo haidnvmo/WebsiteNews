@@ -41,6 +41,7 @@
                                         <th>Name</th>
                                         <th>Email</th>
                                         <th>Avatar</th>
+                                        <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody id="list-customer">

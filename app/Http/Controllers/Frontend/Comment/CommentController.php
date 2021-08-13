@@ -31,11 +31,9 @@ class CommentController extends Controller
         $addComment->id_posts = $request->id_posts;
         $addComment->id_customer = Auth::guard('customer')->user()->id;    
         $addComment->save();
-
+        
         $getComment = Comment::with('customer')->where('id_posts', $request->id_posts)->orderBy('created_at', 'DESc' )->paginate(5);
         $view = view('frontend.detail.commentList',compact('getComment'))->render();
-        return response()->json(['html'=>$view]);
-        
+        return response()->json(['html'=>$view]);     
     }
-
 }
